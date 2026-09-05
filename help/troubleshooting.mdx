@@ -1,5 +1,5 @@
 ---
-title: "Troubleshooting Common TradeHunter Issues"
+title: "TradeHunter Troubleshooting: Fix Common Issues Fast"
 sidebarTitle: "Troubleshooting"
 description: "Fix the most common issues in TradeHunter: broken integrations, missing search results, Google Sheets sync failures, and incorrect deal scores."
 ---
@@ -172,7 +172,7 @@ Most issues in TradeHunter fall into a handful of categories: search configurati
     1. Go to **Settings → Integrations → Google Sheets** and click **Disconnect**, then click **Connect** to start the OAuth flow from scratch.
     2. During the Google authorization screen, make sure you check the box granting access to **"See, edit, create, and delete all your Google Sheets spreadsheets"**. Partial permission grants (view-only) will cause this error every time.
     3. If you're connecting to a shared spreadsheet you don't own, confirm with the owner that your Google account has been granted **Editor** (not just Viewer) access directly on that file.
-    4. If your organization uses Google Workspace with admin-managed OAuth policies, contact your Google Workspace administrator — they may need to whitelist TradeHunter's OAuth app ID (`tradehunter-sheets-integration`) before the authorization can complete.
+    4. If your organization uses Google Workspace with admin-managed OAuth policies, contact your Google Workspace administrator — they may need to whitelist TradeHunter in your organization's approved OAuth applications before the authorization can complete.
     5. After reconnecting successfully, run a test export from **Exports → Run Now** and confirm data appears in the sheet before relying on the scheduled sync.
 
     <Tip>
