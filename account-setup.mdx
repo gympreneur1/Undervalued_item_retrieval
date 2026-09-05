@@ -1,0 +1,168 @@
+---
+title: "Account Setup and Profile Configuration"
+sidebarTitle: "Account Setup"
+description: "Configure your TradeHunter account, manage notification preferences, set your default market areas, and control your connected data sources."
+---
+
+Your TradeHunter account is the control center for everything: your deal preferences, market regions, connected platforms, alert settings, and billing. Taking a few minutes to configure your profile correctly means every search, every daily report, and every deal score will be calibrated to your specific business from the start. This guide walks you through the complete setup process and covers all the settings available to you after your initial onboarding.
+
+## Initial Account Setup
+
+<Steps>
+  <Step title="Create Your Account">
+    Go to [app.tradehunter.app](https://app.tradehunter.app) and click **Get Started Free** to open the registration flow.
+
+    **Option 1 — Email & Password:**
+    - Enter your first name, last name, and business email address.
+    - Create a password that is at least 10 characters and includes a mix of uppercase letters, numbers, and symbols.
+    - Click **Create Account**. A verification email will be sent to your inbox — click the link inside to activate your account.
+
+    **Option 2 — Google SSO:**
+    - Click **Continue with Google** and select the Google account associated with your business.
+    - TradeHunter will automatically pull your name and email from Google. No separate password is needed.
+    - You'll land directly on the onboarding flow without an email verification step.
+
+    After your account is created, you will be directed to the **Onboarding Wizard**, which guides you through your first profile configuration.
+  </Step>
+
+  <Step title="Complete Your Profile">
+    On the **Profile Setup** screen, fill in the following fields:
+
+    - **Full Name** — Your name as it will appear in exported reports and notification emails.
+    - **Business Name** — Your brokerage, investment firm, or resale business name (optional but recommended for report headers).
+    - **Business Type** — Choose one or more that apply: **Broker**, **Investor**, **Reseller**, or **Both** (CRE + Resale). This setting controls which modules are enabled by default and how deal scores are weighted.
+    - **Primary Market Areas** — Enter the area codes or metro regions where you operate most actively. For example, enter `336` for the Greensboro/Winston-Salem/High Point market, `919` for the Raleigh-Durham triangle, or `704` for Charlotte. You can enter multiple area codes separated by commas.
+
+    Click **Save Profile** to continue.
+  </Step>
+
+  <Step title="Select Your Modules">
+    Choose which TradeHunter modules to activate:
+
+    - **Commercial Real Estate** — Enables property search, ROI analysis, tax incentive mapping, and CoStar integration.
+    - **Resale & Auction Finder** — Enables multi-platform deal aggregation, deal scoring, vintage equipment filters, and Google Sheets export.
+
+    You may activate both modules simultaneously. Your subscription tier determines how many search profiles, data sources, and daily export rows each module can process. See your plan details in the [app dashboard](https://app.tradehunter.app/settings/billing).
+  </Step>
+
+  <Step title="Connect Your First Data Source">
+    Connect at least one data source to enable live deal scanning:
+
+    - **CoStar (CRE)** — Navigate to **Settings → Integrations → CoStar**, enter your API credentials, and click **Test Connection**.
+    - **Auction & Marketplace Platforms (Resale)** — Navigate to **Settings → Integrations → Marketplaces** and toggle on the platforms you want to monitor. Platforms requiring OAuth (e.g., Facebook Marketplace) will prompt you to authorize access in a pop-up window.
+
+    Your connected sources persist across all future searches unless you manually revoke access.
+  </Step>
+
+  <Step title="Set Your Default Search Criteria">
+    Navigate to **Deal Search → Search Profiles** and create your first saved profile. Setting your default criteria now ensures that every automated daily scan uses your preferences without manual input.
+
+    For CRE profiles, enter your target area codes, property types, max price, and minimum discount-to-FMV threshold. For Resale profiles, select your categories, keywords, platforms, and minimum deal score. Click **Save Profile** and toggle on **Include in Daily Report** to activate automated scanning.
+  </Step>
+</Steps>
+
+<Note>
+  Set your default area codes during profile setup to make every new search automatically pre-populated with your region. For example, entering `336, 919, 704` as your default market areas means that all new CRE search profiles will start with North Carolina's Triad, Triangle, and Charlotte markets pre-selected — saving you time and ensuring you never accidentally run a search against the wrong geography.
+</Note>
+
+---
+
+## Profile Settings
+
+To edit your profile at any time, navigate to **Settings → Profile** in the top-right account menu.
+
+**Name and Business Information**
+
+Update your display name, business name, and contact email from the **Profile** tab. Your contact email is used for deal alert notifications and daily digest emails, and it also appears in the header of your exported Google Sheets reports. If your business name or structure changes, update it here to keep your exports and notifications accurate.
+
+**Business Type**
+
+Your business type setting influences TradeHunter's deal-scoring model. Brokers receive scores weighted toward listing quality and days-on-market signals. Investors see scores weighted toward discount depth and ROI potential. Resellers receive scores weighted toward resale velocity and platform liquidity. If you operate across multiple verticals, select **Both** to receive a balanced composite score.
+
+**Primary Market Areas**
+
+Your primary market areas act as the default geographic scope for new search profiles. You can set as many area codes as your subscription allows. These are pre-filled whenever you create a new search profile but can always be overridden on a per-profile basis. Enter area codes in the format `336, 919, 704` (comma-separated, no spaces required).
+
+---
+
+## Notification Settings
+
+TradeHunter gives you granular control over how and when you're notified about new deals. Navigate to **Settings → Notifications** to configure your preferences.
+
+**Email Digests**
+
+Email digests compile all new deals matching your saved search profiles into a single formatted email. Configure the following options:
+
+- **Frequency** — Choose **Daily** (sent every morning at your selected delivery time) or **Weekly** (sent every Monday morning). Daily digests are recommended for active deal-sourcing workflows.
+- **Delivery Time** — Select the time you want your digest to arrive (e.g., 7:00 AM in your local time zone). TradeHunter completes its overnight scan before your selected delivery window.
+- **Digest Format** — Choose **Summary** (top 10 deals by score, concise table format) or **Full Report** (all deals matching your criteria, with full metadata).
+- **Include Score Threshold** — Set a minimum deal score (1–100) for listings to appear in your digest. For example, setting `75` means only high-confidence deals make it into your email.
+
+**Real-Time Deal Alerts**
+
+In addition to digest emails, TradeHunter can send instant alerts when a deal that scores exceptionally high appears in any of your active search profiles.
+
+- **Enable Real-Time Alerts** — Toggle on to activate push notifications and instant emails.
+- **Alert Threshold** — Set the minimum score that triggers an instant alert (e.g., `90` for only the highest-confidence deals). Keeping this threshold high prevents alert fatigue while ensuring you never miss a standout opportunity.
+- **Alert Channels** — Choose **Email**, **In-App Notification**, or both.
+
+**Weekly Summary Reports**
+
+Separate from daily digests, weekly summaries provide a higher-level view of deal activity across your markets. They include trend data (e.g., average discount depth this week vs. last week in your NC 336 area code), new platform listings counts, and your saved deal watchlist activity. Enable these under **Settings → Notifications → Weekly Summary**.
+
+---
+
+## Security
+
+Keeping your account secure protects both your deal pipeline and your connected third-party credentials (CoStar, Google, auction platforms). Navigate to **Settings → Security** to manage the following.
+
+**Changing Your Password**
+
+If you signed up with email and password, you can update your password at any time:
+
+1. Go to **Settings → Security → Change Password**.
+2. Enter your current password to confirm your identity.
+3. Enter and confirm your new password (minimum 10 characters, must include at least one uppercase letter, one number, and one symbol).
+4. Click **Update Password**. You will receive a confirmation email and all other active sessions will be logged out automatically.
+
+If you forgot your current password, click **Forgot Password** on the login page to receive a reset link via email.
+
+**Two-Factor Authentication**
+
+Enabling two-factor authentication (2FA) adds a second verification step each time you log in, protecting your account even if your password is compromised.
+
+1. Go to **Settings → Security → Two-Factor Authentication**.
+2. Click **Enable 2FA**.
+3. Scan the QR code displayed on screen using an authenticator app such as Google Authenticator, Authy, or 1Password.
+4. Enter the 6-digit code generated by your authenticator app to confirm setup.
+5. Save your backup recovery codes in a secure location. These codes allow you to regain access if you lose your authenticator device.
+
+Once enabled, 2FA is required every time you sign in from a new device or browser.
+
+**Active Sessions**
+
+Review and revoke active login sessions under **Settings → Security → Active Sessions**. Each session entry shows the device type, browser, IP address, and last active timestamp. Click **Revoke** next to any session you don't recognize to immediately invalidate that login.
+
+---
+
+## Subscription and Billing
+
+TradeHunter offers tiered plans to match the scale of your deal-sourcing operation. Navigate to **Settings → Billing** in your [app dashboard](https://app.tradehunter.app/settings/billing) to review your current plan, usage metrics, and upgrade options.
+
+**Plan Overview**
+
+Your plan determines the number of active search profiles, connected data sources, daily scan volume, and Google Sheets export rows available each month. All plans include access to both the Commercial Real Estate and Resale & Auction Finder modules. Higher tiers unlock additional platforms, increased export volume, priority scan scheduling, and dedicated support.
+
+Visit your **Billing** page for current pricing, plan comparison details, and any promotional offers associated with your account.
+
+**Upgrading or Downgrading Your Plan**
+
+To change your subscription tier, go to **Settings → Billing → Change Plan** and select the tier that fits your needs. Upgrades take effect immediately and are prorated for the remainder of your current billing cycle. Downgrades take effect at the start of your next billing cycle, so you retain full access to your current tier until then.
+
+**Payment Methods**
+
+TradeHunter accepts all major credit and debit cards. To update your payment method, go to **Settings → Billing → Payment Methods**, click **Add Card**, and enter your new card details. Set any card as the default by clicking **Set as Default** next to it.
+
+**Invoices and Receipts**
+
+All past invoices are available under **Settings → Billing → Invoice History**. Each invoice is downloadable as a PDF for your accounting records. If you need a custom invoice format or a W-9 for vendor setup, contact [support@tradehunter.app](mailto:support@tradehunter.app).

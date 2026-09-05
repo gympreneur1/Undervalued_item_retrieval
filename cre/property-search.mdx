@@ -1,0 +1,95 @@
+---
+title: "Search for Undervalued Commercial Properties"
+sidebarTitle: "Property Search"
+description: "Use TradeHunter's property search to filter commercial listings by type, area code, price vs. fair market value, and discount threshold across CoStar, CREN, and partner platforms."
+---
+
+TradeHunter's property search aggregates live commercial listings from CoStar, CREN, LoopNet, Crexi, BizBuySell, and local MLS feeds into a single, filterable results table. Rather than toggling between platforms and manually comparing prices, you define your criteria once and TradeHunter surfaces every matching listing alongside its fair market value (FMV) estimate, discount percentage, cap rate, and days on market. The discount-vs.-FMV filter is the most powerful tool in the module: it lets you skip past fairly priced inventory and focus exclusively on properties where the asking price sits meaningfully below what the market data says the asset is worth.
+
+## Running Your First Search
+
+<Steps>
+  <Step title="Open the CRE Module">
+    From the TradeHunter dashboard, click **Commercial Real Estate** in the left navigation sidebar. The CRE Overview page loads with a **New Property Search** button in the top-right corner. Click it to open a blank search form.
+  </Step>
+  <Step title="Select a Property Type">
+    In the **Property Type** dropdown, choose one or more categories that match your investment thesis. You can select multiple types — for example, **Retail** and **Mixed-Use** — to cast a wider net. See the [Property Type Filters](#property-type-filters) table below for the full list of available types and what each includes.
+  </Step>
+  <Step title="Set Your Geography">
+    Enter your target geography using one of three methods:
+    - **Area Code** — Type a three-digit area code (e.g., `336` for Greensboro/Winston-Salem/High Point) to search all counties within that calling region.
+    - **ZIP Code** — Enter one or more five-digit ZIP codes, separated by commas.
+    - **County** — Select one or more counties from the dropdown (e.g., Guilford County, Forsyth County, Alamance County).
+
+    You can also draw a custom polygon directly on the map by clicking **Draw on Map** and outlining your target area.
+  </Step>
+  <Step title="Define Your Price and Discount Parameters">
+    Set a **Price Range** using the minimum and maximum fields. Then enable the **Discount vs. FMV** filter by toggling it on and entering a threshold percentage. For example, entering `15` means TradeHunter will only return properties where the list price is at least 15% below the estimated fair market value. This is the fastest way to isolate motivated sellers and below-market listings.
+  </Step>
+  <Step title="Apply Additional Filters">
+    Refine your results further with optional filters:
+    - **Listing Status** — Active, Under Contract, Recently Sold, or Off-Market leads.
+    - **Cap Rate (Min)** — Filter to properties meeting a minimum yield threshold.
+    - **Lot Size / Building Size** — Set minimum and maximum square footage or acreage.
+    - **Year Built / Year Renovated** — Narrow to properties of a particular vintage.
+    - **Highway Visibility** — Limit results to parcels with frontage or corridor visibility (see [Highway Visibility](/cre/highway-visibility)).
+    - **Tax Incentive Available** — Show only properties that fall within at least one federal or state incentive program (see [Tax Incentives](/cre/tax-incentives)).
+  </Step>
+  <Step title="Run the Search">
+    Click **Search Properties**. Results appear in the main table within seconds, sorted by Discount % (highest first) by default. You can re-sort by any column header.
+  </Step>
+</Steps>
+
+## Property Type Filters
+
+| Property Type | What It Includes |
+|---|---|
+| **Retail** | Strip centers, standalone retail, pad sites, shopping centers, restaurants, gas stations |
+| **Office** | Single-tenant office, multi-tenant office parks, medical office, flex office |
+| **Industrial** | Warehouses, distribution centers, manufacturing facilities, cold storage, flex industrial |
+| **Mixed-Use** | Buildings combining retail/office with residential units or other income types |
+| **Land** | Unimproved commercial land, development pads, assemblage opportunities |
+| **Multifamily (5+)** | Apartment complexes, mixed residential/commercial buildings with 5 or more units |
+| **Hospitality** | Hotels, motels, extended-stay properties, bed and breakfasts |
+| **Special Purpose** | Car washes, self-storage, religious facilities, schools, medical/dental buildings |
+
+## Reading Search Results
+
+Each row in the results table represents one property record. Here is what each column means:
+
+| Column | Description |
+|---|---|
+| **List Price** | The current asking price as published by the listing broker or platform. |
+| **FMV Estimate** | TradeHunter's fair market value estimate, derived from recent sold comps, income capitalization (for income-producing properties), and replacement cost modeling. |
+| **Discount %** | The percentage gap between List Price and FMV Estimate. A positive number means the property is priced below estimated market value. |
+| **Cap Rate** | Estimated capitalization rate based on current or pro forma net operating income divided by the list price. Displayed as N/A for vacant land. |
+| **Days on Market** | Total days the property has been listed across all connected platforms (TradeHunter deduplicates cross-listed properties). |
+| **Source** | The primary platform where the listing originated (CoStar, LoopNet, Crexi, etc.). |
+| **Incentive Flag** | A colored badge indicating whether any tax incentive programs apply: green = confirmed eligibility, yellow = potential eligibility, gray = none detected. |
+
+Click any row to open the **Property Detail Panel**, which shows the full listing description, parcel map, photo gallery, listing broker contact, and buttons to open the [ROI Analysis](/cre/roi-analysis) and [Tax Incentive](/cre/tax-incentives) panels.
+
+## Saving a Search for Daily Alerts
+
+Once you have configured a search that returns useful results, save it so TradeHunter monitors the market on your behalf:
+
+1. Click **Save Search** in the top-right corner of the results page.
+2. Give the search a descriptive name (e.g., "336 Industrial ≥15% Below FMV").
+3. Choose an alert frequency: **Real-Time** (within minutes of a new listing), **Daily Digest** (one email per day summarizing new matches), or **Weekly Summary**.
+4. Select your notification channels: **Email**, **In-App**, or both.
+5. Click **Save**. The search appears under **My Saved Searches** in the left sidebar.
+
+TradeHunter also monitors price changes on existing listings. If a property already in your results receives a price reduction that moves it across your discount threshold, you will receive an alert marked **Price Drop**.
+
+## Exporting Results
+
+You can export any set of search results for use in underwriting models, partnership presentations, or portfolio tracking:
+
+- **CSV Export** — Click **Export → Download CSV** to download the full results table with all columns. The file includes the property address, parcel ID, list price, FMV estimate, cap rate, source platform, and incentive flags.
+- **Excel Export** — Click **Export → Download Excel** to get a formatted workbook with an additional **Map Links** column containing direct URLs to each parcel on Google Maps and the source platform.
+- **Google Sheets** — Click **Export → Send to Google Sheets**, authorize TradeHunter's Google Sheets integration (one-time), and choose an existing spreadsheet or create a new one. The data lands in a new tab named after your search.
+- **PDF Summary** — Click **Export → PDF Report** to generate a one-page summary of your search parameters and top 20 results, suitable for sharing with a partner or lender.
+
+<Tip>
+  When exporting to Google Sheets, enable **Auto-Refresh** in the export settings. TradeHunter will push updated data to your sheet every 24 hours, keeping your tracking spreadsheet current without manual re-exports.
+</Tip>

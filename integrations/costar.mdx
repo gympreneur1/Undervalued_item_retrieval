@@ -1,0 +1,129 @@
+---
+title: "Connect CoStar and Broker Platforms to TradeHunter"
+sidebarTitle: "CoStar & Brokers"
+description: "Link your CoStar, CREN, LoopNet, and Crexi accounts to TradeHunter to enable cross-platform property search, FMV comparisons, and automated deal alerts."
+---
+
+When you connect your commercial real estate broker platforms to TradeHunter, you unlock a significant upgrade in deal intelligence. TradeHunter pulls active listings, sold comps, and market analytics directly from your existing subscriptions and layers them on top of auction and off-market data — so every deal you evaluate comes with a defensible FMV estimate drawn from live, professional-grade market data. Without these connections, FMV estimates rely solely on public data sources; with them, your comparables are richer, your deal scoring is sharper, and you spend less time manually cross-referencing platforms.
+
+<Warning>
+  TradeHunter uses **read-only access** on every connected broker platform. It will never create, edit, publish, or delete listings on your behalf, and it will never interact with your account in any way that is visible to other users.
+</Warning>
+
+---
+
+## CoStar
+
+CoStar is the most widely used data source for commercial property comps. Once connected, TradeHunter automatically references CoStar when generating FMV estimates for any commercial asset in your deal pipeline.
+
+### Connecting CoStar
+
+<Steps>
+  <Step title="Open the Integrations Panel">
+    From your TradeHunter dashboard, navigate to **Settings → Integrations**.
+  </Step>
+  <Step title="Select CoStar">
+    Under the **Broker Platforms** section, click **CoStar → Connect**.
+  </Step>
+  <Step title="Enter Your CoStar Credentials">
+    Type your CoStar **username** (email address) and **password**. These are the same credentials you use to log in at costar.com. TradeHunter encrypts and stores them in your account vault — they are never logged or transmitted to third parties.
+  </Step>
+  <Step title="Confirm the Connection">
+    Click **Authorize**. TradeHunter runs a test query to verify access. You will see a green **Connected** badge next to CoStar when the handshake succeeds.
+  </Step>
+</Steps>
+
+### What TradeHunter Reads from CoStar
+
+Once connected, TradeHunter pulls the following data on demand when you search or evaluate a deal:
+
+| Data Type | How TradeHunter Uses It |
+|---|---|
+| **Active Listings** | Surfaces competing listings near a target property to establish current market pricing |
+| **Sold Comps** | Powers the FMV engine with recent closed transactions at the property type, size, and location level |
+| **Property Details** | Enriches deal cards with lot size, building class, year built, and zoning |
+| **Market Analytics** | Provides vacancy rate, cap rate trends, and absorption data for the submarket |
+
+Your CoStar subscription tier determines which data types are available. TradeHunter only surfaces data your account already has access to — it does not bypass or circumvent CoStar's access controls.
+
+### Disconnecting or Re-Authorizing CoStar
+
+To disconnect CoStar, go to **Settings → Integrations → CoStar → Disconnect**. TradeHunter will immediately stop using your credentials and purge them from the vault.
+
+If your CoStar password changes, the connection will show a **Credentials Expired** warning on your dashboard. Click **Re-authorize** next to CoStar, re-enter your new credentials, and click **Save**.
+
+<Note>
+  If your organization uses single sign-on (SSO) for CoStar, re-enter your SSO email and password exactly as you would on the CoStar login page. TradeHunter passes credentials directly to CoStar's authentication endpoint and does not store session tokens beyond a single request cycle.
+</Note>
+
+---
+
+## CREN (Commercial Real Estate Network)
+
+CREN is a broker-to-broker network that carries both publicly listed properties and member-only off-market opportunities. Connecting CREN gives TradeHunter visibility into deals that never appear on consumer-facing portals.
+
+### Connecting CREN
+
+Navigate to **Settings → Integrations → CREN → Connect**, then enter your CREN member username and password. The authorization process is identical to CoStar. Once connected, you will see a **Connected** badge and a timestamp of the last successful data sync.
+
+### What TradeHunter Reads from CREN
+
+- **Active Listings** — publicly available properties listed through CREN member brokers
+- **Off-Market Opportunities** — member-only listings shared within the CREN network, accessible only if your CREN membership tier grants off-market access
+
+<Note>
+  Keep your CREN credentials current. CREN sessions expire after 90 days of inactivity, and your TradeHunter connection will break at the same time. TradeHunter will alert you via email and dashboard banner when re-authorization is needed.
+</Note>
+
+---
+
+## LoopNet and Crexi
+
+LoopNet and Crexi are high-volume commercial listing platforms with broad geographic coverage. Both are useful for populating the upper funnel of your deal pipeline with a wide set of available properties.
+
+### Connecting LoopNet
+
+Navigate to **Settings → Integrations → LoopNet → Connect** and enter your LoopNet login credentials.
+
+**LoopNet Premium and CoStar bundling:** If your CoStar subscription includes LoopNet Premium access (which is common for CoStar Pro and higher tiers), use the **same credentials** for both connections. TradeHunter will respect your subscription tier and only surface listing details you are already authorized to view.
+
+### Connecting Crexi
+
+Navigate to **Settings → Integrations → Crexi → Connect** and enter your Crexi account email and password. Crexi uses a standard credential-based login; no OAuth redirect is involved. TradeHunter reads active listing data and, where available, closed sale records to supplement your comp database.
+
+---
+
+## Other Broker and Commercial Platforms
+
+TradeHunter supports a growing catalog of additional commercial platforms. Current integrations include:
+
+| Platform | Description |
+|---|---|
+| **CREXi** | National commercial marketplace with auction and for-sale inventory |
+| **BizBuySell** | Business-for-sale listings including owner-operated commercial properties |
+| **Ten-X Commercial** | Online commercial real estate auctions and negotiated sales |
+| **Catylist** | Regional MLS network focused on commercial listings in secondary markets |
+
+### Adding a Platform
+
+<Steps>
+  <Step title="Open Add Platform">
+    Go to **Settings → Integrations → Add Platform**.
+  </Step>
+  <Step title="Search for the Platform">
+    Type the platform name in the search field. Matching results appear immediately.
+  </Step>
+  <Step title="Select and Connect">
+    Click the platform card, then enter your credentials or follow the OAuth prompt if applicable.
+  </Step>
+</Steps>
+
+If a platform you rely on is not yet listed, use the **Request Integration** button at the bottom of the Integrations page to submit it. The TradeHunter team reviews requests weekly.
+
+---
+
+## Keeping Credentials Up to Date
+
+<Note>
+  Any time you change your password on a connected broker platform, you must update the stored credentials in TradeHunter. Go to **Settings → Integrations**, find the affected platform, click **Edit Credentials**, enter your new password, and click **Save**. Stale credentials cause deal data to stop syncing silently — you will not see an error in search results, just gaps in your comps.
+</Note>

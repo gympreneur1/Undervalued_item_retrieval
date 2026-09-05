@@ -1,0 +1,125 @@
+---
+title: "Frequently Asked Questions About TradeHunter"
+sidebarTitle: "FAQ"
+description: "Answers to the most common questions about TradeHunter's property search, deal scoring, platform integrations, Google Sheets export, and account management."
+---
+
+TradeHunter combines commercial real estate intelligence with a multi-platform resale and auction finder so you can source below-market deals faster and with more confidence. If you have a question that isn't answered below, reach out to [support@tradehunter.app](mailto:support@tradehunter.app) and our team will get back to you within one business day.
+
+---
+
+## General
+
+<AccordionGroup>
+  <Accordion title="What is TradeHunter and who is it for?">
+    TradeHunter is a deal-intelligence platform built for real estate investors, commercial buyers, resellers, and auction hunters who want to find below-market opportunities before the broader market does. The platform has two core modules: a **Commercial Real Estate (CRE) Intelligence** module that identifies undervalued properties, calculates ROI, and surfaces tax incentives, and a **Resale & Auction Finder** that aggregates inventory across 20+ platforms in real time. Whether you flip commercial land, operate a resale business, or hunt for vintage equipment, TradeHunter centralizes the signals you need into one workspace.
+  </Accordion>
+
+  <Accordion title="Is TradeHunter a replacement for CoStar or LoopNet?">
+    TradeHunter is designed to complement CoStar and LoopNet rather than replace them. Those platforms are authoritative listing databases; TradeHunter sits on top of them—alongside many other data sources—to score deals, flag undervalued assets, and surface opportunities those platforms don't highlight on their own. In fact, TradeHunter can pull your existing CoStar and LoopNet data directly into its analysis engine so you don't have to leave your current workflow entirely. Think of TradeHunter as the intelligence layer that tells you *which* listings are worth your attention.
+  </Accordion>
+
+  <Accordion title="How often is deal data refreshed?">
+    Data refresh frequency depends on the source. CRE listings from connected platforms (CoStar, LoopNet, Crexi) are synced every **4 hours** during business hours and once overnight. Resale and auction data from marketplaces like eBay, Facebook Marketplace, and specialty auction houses is refreshed every **15–30 minutes** so you can act before an auction closes. Public-record data—used for fair market value calculations and tax incentive lookups—is updated weekly or whenever a county assessor publishes new records, whichever comes first.
+  </Accordion>
+
+  <Accordion title="Can I use both the CRE module and the Resale module on the same account?">
+    Yes. Both modules are available under a single TradeHunter account, and your saved searches, deal alerts, and Google Sheets exports are unified across them. Which modules you can access depends on your subscription plan — the **Starter** plan includes the Resale & Auction Finder only, while the **Pro** and **Enterprise** plans include both CRE Intelligence and Resale. You can upgrade at any time from **Settings → Billing** without losing any saved data.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Commercial Real Estate
+
+<AccordionGroup>
+  <Accordion title="How does TradeHunter calculate fair market value for a property?">
+    TradeHunter's FMV engine combines three inputs: recent comparable sales pulled from county deed records, active listing prices for similar properties within a configurable radius, and an automated valuation model (AVM) that factors in lot size, zoning class, building square footage, age, and local market trends. The resulting FMV estimate is displayed alongside a **confidence score** (Low / Medium / High) that reflects data density in that micro-market — rural or thinly traded markets naturally carry lower confidence. You can override the AVM with your own comps in the property detail view if you have better local data.
+  </Accordion>
+
+  <Accordion title="What area codes and markets does TradeHunter cover?">
+    TradeHunter covers commercial real estate markets across the continental United States. The platform has **enhanced coverage** in high-velocity markets such as the Sun Belt, the Southeast, and specific growth corridors — including highway-visibility and highway-adjacent land in North Carolina's 336 area code region (Greensboro, Winston-Salem, High Point MSA). Enhanced coverage means denser comparable data, more frequent public-record pulls, and dedicated tax incentive tracking for those markets. To check whether your target market has full or enhanced coverage, go to **Search → Market Coverage Map**.
+  </Accordion>
+
+  <Accordion title="Can I search for off-market properties?">
+    Yes. TradeHunter's **Off-Market Scout** cross-references county assessor records, delinquent tax rolls, absentee-owner databases, and probate filings to surface properties that aren't actively listed anywhere. You can filter off-market results by property type, lot size, zoning, estimated equity, and owner hold time. Note that off-market data availability varies by county — some jurisdictions update records monthly, which means there may be a lag between a property becoming distressed and it appearing in TradeHunter. The Off-Market Scout is available on Pro and Enterprise plans.
+  </Accordion>
+
+  <Accordion title="How accurate are the ROI projections?">
+    ROI projections in TradeHunter are based on your inputs — purchase price, renovation budget, financing assumptions, and target exit strategy — combined with local rental rate data, cap rate benchmarks, and historical appreciation trends for the sub-market. The projections are illustrative models, not guarantees, and their accuracy depends heavily on how realistic your input assumptions are. TradeHunter displays a **sensitivity table** alongside every projection so you can see how returns shift if key variables (vacancy rate, interest rate, exit cap rate) move against you. Always validate projections with a licensed appraiser or financial advisor before closing.
+  </Accordion>
+
+  <Accordion title="Where does tax incentive data come from?">
+    TradeHunter aggregates tax incentive data from federal program databases (Opportunity Zones, EB-5 regions, HUBZones), state economic development agencies, and municipal enterprise zone registries. The data is refreshed weekly and cross-referenced against each property's parcel boundary so you can see at a glance which programs a specific lot qualifies for. Because incentive eligibility rules change — especially at the state and local level — TradeHunter links directly to the authoritative program source for each incentive so you can confirm current terms before making a decision.
+  </Accordion>
+
+  <Accordion title="Does TradeHunter list properties — or just find them?">
+    TradeHunter is purely a **finder and analysis tool** — it does not operate a listing marketplace or hold inventory. When you identify a property you want to act on, TradeHunter surfaces the original listing source (or county record for off-market properties) so you can contact the seller, broker, or county directly. This keeps TradeHunter's incentives aligned with yours: the platform's job is to help you find the best deal, not to sell you a specific property.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Resale & Auction Finder
+
+<AccordionGroup>
+  <Accordion title="How many auction platforms does TradeHunter monitor?">
+    TradeHunter currently monitors **20+ resale and auction platforms**, including eBay, Facebook Marketplace, Craigslist, OfferUp, Mercari, Poshmark, Hibid, Proxibid, GovPlanet, IronPlanet, PropertyRoom, AuctionZip, and several regional estate-sale and liquidation sites. The platform list is continuously expanded — you can see the full current roster and per-platform sync status at **Resale → Platform Status**. If there's a platform you'd like added, submit a request through **Settings → Feature Requests**.
+  </Accordion>
+
+  <Accordion title="How does Deal Score work?">
+    Deal Score is a 0–100 rating that estimates how far below fair market value a listing is, adjusted for condition, platform fees, shipping costs, and historical sell-through rates for that item category. A score above **75** generally indicates a strong buying opportunity; scores below **40** suggest the listing is priced at or above market. The algorithm weighs recent completed sales data more heavily than active listings, since active prices often reflect seller optimism rather than actual market value. You can customize Deal Score weights for specific categories in **Resale → Score Settings**.
+  </Accordion>
+
+  <Accordion title="Can I track specific brands of vintage gym equipment?">
+    Yes. TradeHunter's keyword and brand filters are designed for exactly this use case. In **Resale → Saved Searches**, you can build a search targeting specific brands (e.g., Paramount, Universal, Marcy, Nautilus, VR3, Powertec), item types (cable machines, plate-loaded benches, functional trainers), condition keywords, and price ceilings. You can also exclude common junk keywords like "parts only" or "for display" to keep results clean. Deal alerts will notify you by email or push notification the moment a matching item is listed, so you can move quickly on rare finds.
+  </Accordion>
+
+  <Accordion title="What happens when an auction ends while I'm watching it?">
+    When a watched auction closes, TradeHunter logs the final sale price to your **Price History** database for that item category — this data feeds future Deal Score calculations. If the item sold below your target price, you'll receive a **Missed Deal** notification that includes the final price, the winning platform, and a link to set up a tighter alert for the next similar listing. If you had a maximum bid set via a connected platform integration, TradeHunter will also confirm whether your bid was executed or outbid.
+  </Accordion>
+
+  <Accordion title="Can I bid directly from TradeHunter?">
+    Direct bidding is available on select integrated platforms. Currently, TradeHunter supports **one-click bid placement** on eBay (via your connected eBay account) and **watch-list syncing** with Hibid and Proxibid. For all other platforms, TradeHunter opens the original listing in a new tab with your account pre-authenticated where the platform allows it. Full bidding integration for additional platforms is on the roadmap — check **Settings → Platform Connections** for the current list of supported bid-enabled platforms.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Integrations & Export
+
+<AccordionGroup>
+  <Accordion title="How do I connect my CoStar account?">
+    Go to **Settings → Integrations → CoStar** and click **Connect**. You'll be prompted to enter your CoStar API key, which you can generate in your CoStar account under **My Account → API Access**. Once connected, TradeHunter will begin syncing your CoStar saved searches and comp data within 15 minutes. Note that CoStar API access is included with CoStar Suite and CoStar Anywhere subscriptions — if you're on a basic listing-only plan, you may need to contact your CoStar account rep to enable API access.
+  </Accordion>
+
+  <Accordion title="How often does the Google Sheets export run?">
+    The Google Sheets export runs on a schedule you configure — options range from **every 30 minutes** to **once daily**, depending on your plan. Pro and Enterprise users can also trigger an on-demand export at any time from the **Exports** dashboard or via the TradeHunter API. Each scheduled run appends new rows for deals added since the last sync and updates the status of existing rows (e.g., marking an auction as closed or a listing as price-reduced) so your sheet stays current without duplicate entries.
+  </Accordion>
+
+  <Accordion title="Can I export to Excel instead of Google Sheets?">
+    Yes. You can download a one-time `.xlsx` export of any saved search or deal list from **Exports → Download Excel**. Scheduled recurring exports, however, currently only support Google Sheets as a live-sync destination — Excel does not have a native cloud API that allows TradeHunter to push updates automatically. If you prefer to work in Excel, the recommended workflow is to export to Google Sheets on a schedule and use Excel's **Data → Get Data from Web** feature to pull the sheet into a local workbook. Native Excel Online scheduled sync is on the product roadmap.
+  </Accordion>
+
+  <Accordion title="What columns are included in the export?">
+    The default export includes: **Listing ID, Platform, Title, Category, Listing Price, FMV Estimate, Deal Score, Discount % vs. FMV, Condition, Location, Listing URL, Auction End Date/Time, Days on Market, Last Price Change, and Date Added to TradeHunter**. For CRE exports, additional columns include **Zoning, Lot Size (acres), Building SF, Cap Rate, Projected ROI, Tax Incentives Applicable, and Off-Market Flag**. You can reorder, hide, or add custom computed columns from **Exports → Column Manager**, and your column configuration is saved per export template.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Billing & Account
+
+<AccordionGroup>
+  <Accordion title="Can I cancel my subscription at any time?">
+    Yes, you can cancel your subscription at any time from **Settings → Billing → Cancel Plan** — no phone call or approval required. Your access remains active through the end of your current billing period, and you will not be charged again after that. TradeHunter does not offer prorated refunds for the remainder of a billing cycle, but you're welcome to contact [support@tradehunter.app](mailto:support@tradehunter.app) if you believe you were charged in error.
+  </Accordion>
+
+  <Accordion title="Is there a free trial?">
+    TradeHunter offers a **14-day free trial** on all paid plans with no credit card required. During the trial, you have full access to every feature included in your chosen plan tier, including Google Sheets exports and platform integrations. At the end of the trial, you'll receive an email with a link to enter payment details to continue — if you don't upgrade, your account shifts to a read-only state where you can view but not update saved searches for an additional 7 days before data is archived.
+  </Accordion>
+
+  <Accordion title="What happens to my saved searches if I downgrade?">
+    When you downgrade to a lower plan, saved searches that exceed the new plan's limits are **deactivated** (not deleted) — they stop running and generating alerts, but all historical data and configurations are preserved. If you upgrade again later, those searches are automatically reactivated. You can choose which searches to keep active and which to deactivate yourself from **Searches → Manage** before the downgrade takes effect, giving you control over which alerts remain live within your new plan's limits.
+  </Accordion>
+</AccordionGroup>

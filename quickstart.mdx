@@ -1,47 +1,95 @@
 ---
-title: "Quickstart"
-description: "Begin with a guide on the fastest path to a successful outcome"
+title: "Get Started with TradeHunter in 5 Minutes"
+sidebarTitle: "Quickstart"
+description: "Set up your TradeHunter account, connect your first data source, and run your first deal search in under five minutes."
 ---
 
-Describe how someone begins using your product. What is the first thing they need to do? Are there any prerequisites?
-
-A quickstart should take someone from zero to using your product. They'll get a quick win and a sense of what they can accomplish.
-
-## Prerequisites
-
-Before you begin, you must have:
-
-- Requirement one (for example, Node.js 18+, a free account, an API key)
-- Requirement two (for example, a compatible device, a compatible browser, a compatible operating system)
-
-## Get started
+This guide walks you through everything you need to go from zero to your first actionable deal report. By the end, you'll have a live TradeHunter account, at least one data source connected, your search criteria configured, and results flowing into your Google Sheets workbook — all in under five minutes.
 
 <Steps>
-  <Step title="Install">
-    Describe how to install your product or sign up.
+  <Step title="Create Your Account">
+    Navigate to [app.tradehunter.app](https://app.tradehunter.app) and click **Get Started Free**.
 
-    ```bash
-    npm install your-package
-    ```
+    You have two sign-up options:
+
+    - **Email & Password** — Enter your email, create a strong password, and verify your address via the confirmation email sent to your inbox.
+    - **Google SSO** — Click **Continue with Google** to authenticate instantly using your existing Google account. No separate password required.
+
+    After signing in for the first time, you'll be prompted to select your business type (Broker, Investor, Reseller, or Both) and enter your primary market region. These settings pre-configure your dashboard and deal-scoring model to match your use case from the start.
   </Step>
-  <Step title="Configure">
-    Describe any setup or configuration needed before first use.
 
-    ```bash
-    your-cli init
-    ```
+  <Step title="Choose Your Module">
+    TradeHunter offers two deal-finding modules. You can activate one or both depending on your business.
+
+    | Module | Best For |
+    |---|---|
+    | **Commercial Real Estate** | Agents, brokers, and investors seeking undervalued properties, ROI analysis, tax incentive mapping, and highway-visibility land parcels |
+    | **Resale & Auction Finder** | Resellers and flippers aggregating below-market inventory across 20+ auction and marketplace platforms |
+
+    Select your module(s) on the onboarding screen and click **Continue**. You can toggle modules on or off at any time from your **Account Settings → Modules** page.
+
+    <Tip>
+      You can run both the Commercial Real Estate and Resale & Auction Finder modules simultaneously. Many TradeHunter users operate across both verticals and benefit from a unified daily report covering properties and resale inventory in a single Google Sheets workbook.
+    </Tip>
   </Step>
-  <Step title="Run it">
-    Show the first thing a user does to see it working.
 
-    ```bash
-    your-cli start
-    ```
+  <Step title="Connect a Data Source">
+    TradeHunter pulls live data from the platforms you authorize. Connecting a source takes about 60 seconds.
+
+    **For Commercial Real Estate:**
+    1. Go to **Settings → Integrations → CoStar**.
+    2. Enter your CoStar API credentials (username and API key). If you don't have a CoStar account, click **Request Access** to be directed to CoStar's signup page.
+    3. Click **Test Connection** to confirm the link is active, then click **Save**.
+
+    **For Resale & Auction Finder:**
+    1. Go to **Settings → Integrations → Marketplaces**.
+    2. Toggle on any platforms you want to monitor. Supported platforms include Facebook Marketplace, GovDeals, AuctionZip, Proxibid, HiBid, PublicSurplus, eBay, Craigslist, and 12 more.
+    3. For platforms that require authentication (e.g., Facebook Marketplace), click **Authorize** and complete the OAuth flow in the pop-up window.
+    4. Click **Save Sources** when finished.
+
+    Your enabled sources are saved to your profile and used automatically in every subsequent search.
+  </Step>
+
+  <Step title="Set Your Search Criteria">
+    Search criteria tell TradeHunter what a deal looks like to you. Saved criteria run automatically on every daily scan.
+
+    **For Commercial Real Estate:**
+    - **Property Types** — Select from Retail, Office, Industrial, Land, Mixed-Use, Multi-Family, and more.
+    - **Area Codes** — Enter one or more NC area codes (e.g., `336` for Greensboro/Winston-Salem/High Point, `919` for Raleigh, `704` for Charlotte) to define your geographic focus.
+    - **Max Purchase Price** — Set a ceiling to filter out listings above your budget.
+    - **Minimum Discount vs. FMV** — Enter a percentage (e.g., `15%`) so TradeHunter only surfaces properties priced at least that far below their estimated fair market value.
+    - **Highway Visibility** — Toggle on to prioritize land parcels with high-traffic road frontage, particularly along major corridors in the 336 market.
+
+    **For Resale & Auction Finder:**
+    - **Categories** — Choose from Electronics, Furniture, Industrial Equipment, Fitness Equipment (including Vintage), Vehicles, Apparel, and more.
+    - **Keywords** — Add specific keywords (e.g., `Nautilus`, `Universal Gym`, `Cybex`, `vintage weight machine`) to narrow results to the inventory you know best.
+    - **Platforms** — Select which of your connected platforms to include in this specific search profile.
+    - **Max Listing Price** — Set a price ceiling to filter results to your working budget.
+    - **Minimum Deal Score** — TradeHunter scores every listing from 1–100. Set a floor (e.g., `70`) to see only high-confidence deals.
+
+    Click **Save Search Profile** to name and store your criteria. You can create multiple profiles (e.g., "NC 336 Land" and "Vintage Fitness Equipment") and run them all in parallel.
+  </Step>
+
+  <Step title="Run Your First Search">
+    With your data sources connected and at least one search profile saved, you're ready to find deals.
+
+    1. From your dashboard, click **Find Deals** next to any saved search profile — or click **Run All** to execute every profile simultaneously.
+    2. TradeHunter queries your connected platforms in real time, scores every matching listing, and returns ranked results within seconds to a few minutes depending on source volume.
+    3. Review results in the **Deal Feed** view. Each listing shows the source platform, listing price, estimated fair market value, discount percentage, deal score, and a direct link to the original listing.
+    4. Click any listing to open the **Deal Detail** panel, where you'll find additional data including property history (CRE), comparable sales, ROI projections, tax incentive flags, and seller contact information where available.
+    5. Use the **Save Deal** button to pin high-interest listings to your watchlist for follow-up.
+  </Step>
+
+  <Step title="Export to Google Sheets">
+    TradeHunter can push your entire deal feed — including all scored listings, metadata, and direct links — into a Google Sheets workbook automatically, every day.
+
+    1. Go to **Settings → Integrations → Google Sheets**.
+    2. Click **Connect Google Account** and authorize TradeHunter via the Google OAuth prompt.
+    3. Choose whether to create a **New Workbook** (TradeHunter will provision and name it for you) or link to an **Existing Sheet** (paste in the sheet URL).
+    4. Select which search profiles to include in the export and choose your preferred sheet layout: one tab per profile, or all results in a single consolidated tab.
+    5. Set your **Sync Schedule** — daily at a specific time, or on-demand via the **Export Now** button in your dashboard.
+    6. Click **Save & Enable Sync**.
+
+    Starting the next morning (or immediately if you click **Export Now**), your Google Sheets workbook will be populated with a fresh, fully formatted deal report — new rows highlighted in green, expired listings automatically greyed out.
   </Step>
 </Steps>
-
-<Tip>
-  Give people a way to get help. This could be a link to a support page, a chat with a customer support agent, or a forum for your product.
-
-  Example: Need help? Reach out to us at [support@yourcompany.com](mailto:support@yourcompany.com).
-</Tip>

@@ -1,0 +1,122 @@
+---
+title: "Auto-Export Daily Deals to Google Sheets"
+sidebarTitle: "Sheets Export"
+description: "Connect TradeHunter to Google Sheets to receive a fully formatted, automatically updated spreadsheet of your best deals every morning — no manual copying required."
+---
+
+TradeHunter's Google Sheets integration turns your deal feed into a living spreadsheet — automatically populated each morning with the top listings from your saved searches, complete with deal scores, ROI estimates, auction end times, and direct links to every listing. Instead of logging into your dashboard to review new deals, you open your Google Sheet and your best opportunities are already waiting, color-coded by Deal Score and sorted for quick review. The integration takes less than five minutes to set up and runs entirely on autopilot once activated.
+
+## Setup
+
+<Steps>
+  <Step title="Open Integrations → Google Sheets">
+    In your TradeHunter dashboard, click **Integrations** in the left navigation menu, then select **Google Sheets** from the integrations list. This opens the Google Sheets integration configuration panel.
+  </Step>
+
+  <Step title="Connect Your Google Account">
+    Click **Connect Google Account**. TradeHunter will open a Google OAuth authorization window. Sign in with the Google account that owns or has edit access to the spreadsheet you want to use. When prompted, grant TradeHunter **read and write access to Google Sheets** — this permission allows TradeHunter to create new spreadsheets or write rows to an existing one on your behalf. TradeHunter does not access any other Google data.
+
+    Once you authorize access, you will see a green **Connected** status next to your Google account email in the integration panel.
+  </Step>
+
+  <Step title="Choose Your Spreadsheet">
+    Select one of two options:
+
+    - **Create New Spreadsheet** — TradeHunter creates a new Google Sheet in your Google Drive, pre-formatted with column headers and conditional formatting rules. The sheet is named "TradeHunter Deals – [Date Created]" by default, but you can rename it in Google Drive at any time.
+    - **Use Existing Spreadsheet** — Paste the full URL of an existing Google Sheet. TradeHunter will write new deal rows to a dedicated **TradeHunter** tab within that spreadsheet, leaving any other tabs untouched.
+  </Step>
+
+  <Step title="Select Saved Searches to Export">
+    In the **Export Sources** section, choose which of your saved searches should feed this spreadsheet. You can select:
+
+    - Individual saved searches (e.g., "Nautilus Nitro – Southeast," "GovDeals – Score 80+")
+    - All Resale & Auction saved searches
+    - All CRE (Commercial Real Estate) saved searches
+    - All saved searches across both modules
+
+    Each saved search you select will appear as its own labeled section within the exported spreadsheet, separated by a header row so you can quickly distinguish deal sources.
+  </Step>
+
+  <Step title="Set Your Export Schedule">
+    Choose the time at which TradeHunter runs the daily export. Available presets are **6:00 AM**, **7:00 AM**, and **8:00 AM** in your account timezone. If you prefer a different time, select **Custom Time** and enter the hour and minute in your local timezone.
+
+    TradeHunter runs one export per day at your scheduled time. The export includes all new or updated listings indexed since the previous export run. Listings that were already present in the sheet and have not changed are not duplicated.
+  </Step>
+
+  <Step title="Map Your Columns">
+    In the **Column Mapping** section, choose which listing fields to include in the export. Check or uncheck fields to match your workflow. Available fields include:
+
+    | Field | Description |
+    |---|---|
+    | **Deal Score** | The 0–100 composite deal score |
+    | **Platform** | The source platform (e.g., GovDeals, HiBid) |
+    | **Listing Title** | The full listing title as it appears on the source platform |
+    | **Asking / Auction Price** | Current price or current high bid |
+    | **Estimated FMV** | TradeHunter's estimated fair market value |
+    | **Discount %** | Percentage below estimated FMV |
+    | **ROI Estimate** | Gross ROI range (low–high) |
+    | **Condition** | Standardized condition tag |
+    | **Location** | City, state, or region of the listing |
+    | **Listing URL** | Direct link to the listing on the source platform |
+    | **Auction End Time** | Scheduled close time for auction listings |
+    | **Date Indexed** | The date TradeHunter first discovered this listing |
+
+    By default, all fields are selected. You can deselect any field you do not need. Column order in the spreadsheet matches the order of the fields in this list.
+  </Step>
+
+  <Step title="Save & Activate">
+    Click **Save & Activate** to finalize your integration settings. TradeHunter confirms the configuration and displays the next scheduled export time. Your first export will run at the next occurrence of your scheduled time. If you want to verify the setup immediately, click **Run Export Now** to trigger an on-demand export (see the On-Demand Refresh section below).
+  </Step>
+</Steps>
+
+## What the Exported Spreadsheet Looks Like
+
+The exported spreadsheet contains one row per deal listing. Column headers appear in row 1, frozen so they remain visible as you scroll. Each saved search is separated by a shaded header row showing the search name and the date and time of the last export run.
+
+A typical row looks like this:
+
+| Deal Score | Platform | Listing Title | Price | Est. FMV | Discount % | ROI Est. | Condition | Location | Listing URL | Auction End | Date Indexed |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| 94 | GovDeals | Nautilus Nitro Leg Press Commercial | $180 | $850 | 78.8% | 261%–344% | Untested | Durham, NC | [Link] | 2025-08-14 3:00 PM | 2025-08-11 |
+
+Listings are sorted by Deal Score descending within each saved-search section, so the best opportunities appear at the top of each section.
+
+## Conditional Formatting
+
+TradeHunter automatically applies conditional formatting to the **Deal Score** column when it creates or writes to your spreadsheet:
+
+- 🟢 **Green** — Deal Score ≥ 80 (strong deal, high priority)
+- 🟡 **Yellow** — Deal Score 60–79 (moderate deal, worth evaluating)
+- 🔴 **Red** — Deal Score < 60 (near or above market value, low priority)
+
+This color coding lets you visually scan a sheet of 50–100 listings and immediately focus on the green rows without reading individual scores. The formatting rules are applied to the Deal Score column in every new export — if you modify or delete the formatting rules in Google Sheets, TradeHunter will reapply them on the next scheduled export run.
+
+## Refreshing on Demand
+
+You do not need to wait for the next scheduled export to update your spreadsheet. To trigger an immediate export:
+
+1. Go to **Integrations → Google Sheets** in your TradeHunter dashboard.
+2. Find your active integration in the integrations list.
+3. Click the **Run Now** button.
+
+TradeHunter will execute the export immediately and update your spreadsheet within 1–3 minutes. The "Last Export" timestamp in the integration panel will update to confirm completion.
+
+## Pausing or Deleting the Sync
+
+**To pause the integration** (stop scheduled exports without losing your configuration):
+
+1. Go to **Integrations → Google Sheets**.
+2. Click the **Pause** toggle next to your integration. The toggle turns gray and the next export time is replaced with "Paused."
+3. To resume, click the toggle again. Exports will resume at the next scheduled time.
+
+**To delete the integration entirely:**
+
+1. Go to **Integrations → Google Sheets**.
+2. Click the **⋯** menu on your integration and select **Delete Integration**.
+3. Confirm the deletion. TradeHunter immediately stops all scheduled exports for this integration. The Google Sheet itself is not deleted — TradeHunter only removes its connection to it. You retain full access to your spreadsheet and all data that was already written.
+
+You can create a new integration at any time after deleting one.
+
+<Note>
+  The Google Sheets integration requires a connected Google account with a valid OAuth authorization. TradeHunter can only write to spreadsheets that the connected Google account owns or has explicit edit access to — shared spreadsheets with view-only access will not work. If your Google authorization expires or is revoked, TradeHunter will send you an email notification and pause the scheduled export until you reconnect your account from **Integrations → Google Sheets**.
+</Note>

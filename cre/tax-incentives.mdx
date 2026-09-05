@@ -1,0 +1,181 @@
+---
+title: "Discover Tax Incentives and Grants for Commercial Properties"
+sidebarTitle: "Tax Incentives"
+description: "TradeHunter automatically checks each property against federal and state tax incentive programs — including Opportunity Zones, historic credits, and NC development grants."
+---
+
+Tax incentives can fundamentally change the economics of a commercial real estate deal. A property that looks marginal on a raw cap rate basis can become highly compelling once you factor in a federal Opportunity Zone deferral, a historic rehabilitation tax credit, or a North Carolina Job Development Investment Grant. TradeHunter's Tax Incentive engine does this analysis automatically: every time you view a commercial property in the CRE module, TradeHunter cross-references its location and characteristics against a continuously updated database of federal, state, and local incentive programs and surfaces every program for which the property appears eligible. You spend your time evaluating opportunities — not hunting through government websites.
+
+<Note>
+  Incentive eligibility results displayed by TradeHunter are informational only and are based on publicly available program boundaries, criteria, and guidelines. Actual eligibility depends on your specific investment structure, tax position, and compliance with program requirements. Always consult a qualified tax professional or CPA before relying on incentive estimates in an investment decision.
+</Note>
+
+## How the Tax Incentive Lookup Works
+
+When you open any property's detail view in TradeHunter, the platform automatically:
+
+1. **Geocodes the parcel** to confirm its precise census tract, ZIP code, county, and any special overlay districts.
+2. **Queries the incentive database** against all programs in TradeHunter's library, checking each program's geographic and property-type eligibility criteria.
+3. **Displays the Incentive Panel** alongside the property listing, listing every program that appears applicable with a summary of the estimated benefit, key eligibility conditions, and a direct link to the administering agency's application page.
+
+You can also reach the Incentive Panel from the [ROI Analysis](/cre/roi-analysis) view — click **Add Incentive Credit** to fold an incentive's estimated value directly into your pro forma cash flows.
+
+## Reading the Incentive Results Panel
+
+The Incentive Panel shows each matching program as a card containing:
+
+| Field | What It Shows |
+|---|---|
+| **Program Name** | The official name of the incentive program. |
+| **Administering Agency** | Federal agency, NC state department, or local authority responsible for the program. |
+| **Estimated Benefit** | A dollar or percentage estimate of the credit, deduction, or grant amount based on your property's characteristics. Where a range applies, TradeHunter shows both low and high estimates. |
+| **Eligibility Conditions** | The key requirements you must meet: investment minimums, job creation targets, building age, zone location, etc. |
+| **Status** | Active, Pending Reauthorization, or Sunset (programs that have expired but may apply to prior-year transactions). |
+| **Application Link** | A direct URL to the administering agency's program page or application portal. |
+
+Use the **Filter Incentives** dropdown at the top of the panel to show only Federal, State, or Local programs. Use the **Sort by Estimated Benefit** option to rank programs by their financial impact.
+
+## Incentive Programs Covered
+
+<Accordion title="Federal Programs">
+
+### Federal Opportunity Zones (IRS Section 1400Z-2)
+
+Opportunity Zones (OZs) are census tracts designated by the IRS where investors can defer or reduce capital gains taxes by investing through a Qualified Opportunity Fund (QOF). TradeHunter checks each property against the current IRS OZ census tract list and flags any parcel located within a designated zone.
+
+**Key benefits:**
+- Deferral of existing capital gains until December 31, 2026 (or earlier sale of QOF interest).
+- Permanent exclusion of gains accrued *within* the QOF investment if held for at least 10 years.
+
+**Eligibility conditions:** The property must be acquired through a QOF entity; substantial improvement requirements apply to existing structures (you must roughly double the building's depreciable basis within 30 months).
+
+**TradeHunter estimate:** Calculated as the present value of tax deferral on your specified capital gains amount (configurable in **Account Settings → Tax Profile**).
+
+---
+
+### Federal Historic Tax Credit (IRS Section 47)
+
+The Federal Historic Tax Credit provides a 20% tax credit equal to 20% of qualified rehabilitation expenditures (QREs) on certified historic structures. TradeHunter cross-references each property against the National Register of Historic Places and State Historic Preservation Office (SHPO) listings to identify potential eligibility.
+
+**Key benefits:**
+- 20% federal income tax credit on qualifying renovation costs.
+- Can be combined with state historic credits in North Carolina (additional 15% state credit available for income-producing properties).
+
+**Eligibility conditions:** Building must be a certified historic structure or located in a registered historic district; rehabilitation must be certified by the National Park Service; QREs must exceed the greater of $5,000 or the building's adjusted basis.
+
+---
+
+### New Markets Tax Credits (NMTC — IRS Section 45D)
+
+NMTC allocations allow investors to receive a 39% tax credit over 7 years on equity investments made into Community Development Entities (CDEs) that deploy capital in low-income communities. TradeHunter flags properties located in NMTC-eligible census tracts (those with poverty rates above 20% or median family income below 80% of the area median).
+
+**Key benefits:**
+- 39% tax credit over 7 years (5% per year for the first 3 years, 6% per year for the next 4 years).
+- Often structured alongside OZ investment for amplified benefit.
+
+**Eligibility conditions:** NMTC financing must flow through a certified CDE; allocation availability varies by year and is competitive. TradeHunter shows tract eligibility but cannot guarantee allocation availability.
+
+</Accordion>
+
+<Accordion title="North Carolina State Programs">
+
+### One North Carolina Fund
+
+The One North Carolina Fund is a discretionary incentive administered by the NC Department of Commerce, providing cash grants to businesses that create jobs and make significant capital investments in the state. While primarily a business incentive, it frequently applies to real estate projects that anchor a qualifying business operation.
+
+**Key benefits:**
+- Cash grants ranging from $1,000 to $10,000+ per job created, depending on county tier and wage levels.
+- Applicable to new construction, substantial renovation, and tenant improvement projects tied to a job-creation commitment.
+
+**Eligibility conditions:** Must create a minimum number of net new full-time jobs (typically 10–20+, depending on county tier); wage requirements apply; capital investment minimums vary.
+
+---
+
+### NC Site Infrastructure Fund
+
+The NC Site Infrastructure Fund provides grants to local governments and utilities to extend or upgrade infrastructure — roads, water, sewer, broadband — to development-ready sites that are expected to attract private investment. If you are acquiring raw commercial land, TradeHunter flags sites located within or adjacent to active SIF project areas.
+
+**Key benefits:**
+- Infrastructure cost offsets that would otherwise fall on the developer.
+- Sites with active SIF investments are typically "pad-ready" faster than comparable unserved sites.
+
+**Eligibility conditions:** Infrastructure grants go to the local government, not directly to the developer. Benefit to you is indirect: reduced development timeline and cost. Coordinate with the county economic development office listed in the Incentive Panel.
+
+---
+
+### Job Development Investment Grant (JDIG)
+
+The JDIG program is NC's primary performance-based incentive for new and expanding businesses. It provides annual cash grants equal to a percentage of withholding taxes paid by newly hired employees, paid out over up to 12 years.
+
+**Key benefits:**
+- Up to 80% of personal income tax withholdings from new jobs (percentage depends on county tier and job quality).
+- Long-duration payout (up to 12 years) provides sustained cash flow support for a business anchoring your commercial property.
+- As a property owner, JDIG-eligible locations command stronger tenant demand, higher rents, and lower vacancy risk.
+
+**Eligibility conditions:** Business must create a minimum number of new jobs; wage thresholds apply; business must remain in operation and maintain headcount. Negotiated directly with NC Commerce.
+
+---
+
+### NC Historic Rehabilitation Tax Credit (G.S. 105-129.105)
+
+North Carolina offers a 15% state income tax credit for qualified rehabilitation expenditures on income-producing historic structures, directly stackable with the 20% federal Historic Tax Credit for a combined 35% credit on eligible renovation costs.
+
+**Key benefits:**
+- 15% state credit on certified QREs for income-producing certified historic structures.
+- 30% state credit for non-income-producing historic structures (owner-occupied).
+- Combined 35% federal + state credit available for income-producing historic rehabs.
+
+**Eligibility conditions:** Building must be a certified historic structure or contributing structure in a certified historic district; NC SHPO certification required; credits are claimed over 5 years.
+
+</Accordion>
+
+<Accordion title="Local Incentives — Triad Region (Guilford, Forsyth, and Alamance Counties)">
+
+### Guilford County Economic Development Incentives
+
+Guilford County (Greensboro, High Point) offers property tax incentive grants to qualifying businesses making capital investments above specified thresholds. TradeHunter flags properties in Guilford County and links to the current Guilford County Economic Development Investment Policy.
+
+**Key benefits:**
+- Property tax grants ranging from 50% to 80% of incremental property taxes generated by new investment for up to 5 years.
+- Enhanced grants available for projects in designated Tier 1 (most distressed) areas within the county.
+
+**Contact:** Guilford County Economic Development — linked in the Incentive Panel.
+
+---
+
+### Forsyth County and City of Winston-Salem Incentives
+
+Forsyth County and the City of Winston-Salem jointly administer economic development grants tied to capital investment and job creation. The programs are flexible and can apply to manufacturing, distribution, office, and mixed-use projects.
+
+**Key benefits:**
+- Property tax grants for qualifying new and expanded facilities.
+- City of Winston-Salem Downtown Investment Grant for commercial rehabilitation in the central business district.
+- Façade Improvement Grants up to $25,000 for qualifying commercial properties in designated corridors.
+
+**Contact:** Winston-Salem Business Inc. and Forsyth County Economic Development — linked in the Incentive Panel.
+
+---
+
+### Alamance County and City of Burlington Incentives
+
+Alamance County is a Tier 2 county under NC's development tier system, making projects there eligible for more favorable JDIG and One NC Fund terms. Local incentives include property tax abatement grants and site readiness assistance.
+
+**Key benefits:**
+- County property tax grants for capital investments exceeding $500,000.
+- City of Burlington Economic Development Incentive Policy for qualifying commercial projects.
+- Access to the Burlington/Alamance County Enterprise Zone overlay for additional local benefits.
+
+**Contact:** Alamance County Economic Development Corporation — linked in the Incentive Panel.
+
+</Accordion>
+
+## Filtering Your Property Search by Incentive Availability
+
+You do not have to review the Incentive Panel property by property. TradeHunter lets you filter your search results upfront to show only incentivized properties:
+
+- **Opportunity Zones Only** — In the Search Filters panel, toggle **Opportunity Zone** to On. Results will be limited to parcels within designated OZ census tracts.
+- **Any Incentive Available** — Toggle **Incentive Eligible: Any** to filter to properties with at least one active federal, state, or local program match.
+- **Specific Program** — Use the **Incentive Program** multi-select to filter to one or more specific programs (e.g., show only Historic Tax Credit–eligible buildings).
+- **Minimum Estimated Benefit** — Enter a dollar threshold in the **Min. Incentive Value** field to exclude properties where the estimated benefit is below your underwriting threshold.
+
+These filters work in combination with all other search filters, so you can, for example, search for industrial properties in the 336 area code, priced ≥15% below FMV, located in an Opportunity Zone — all in a single query.

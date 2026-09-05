@@ -1,0 +1,129 @@
+---
+title: "Analyze ROI Potential for Commercial Properties"
+sidebarTitle: "ROI Analysis"
+description: "TradeHunter's ROI calculator projects net yield, cap rate, cash-on-cash return, and break-even timeline for any commercial parcel using current market rents and expenses."
+---
+
+TradeHunter's ROI Analysis panel transforms a raw listing into a fully modeled investment scenario in under a minute. Rather than building a new spreadsheet for every property you evaluate, you open the ROI panel directly from any property card, review the auto-populated assumptions, adjust the inputs to match your strategy, and instantly see how the deal pencils out across five key performance metrics. Every calculation uses current comparable rent data pulled from CoStar and CREN for the property's submarket, so your pro forma is grounded in what tenants are actually paying nearby — not stale national averages.
+
+## Opening the ROI Panel
+
+You can launch the ROI panel from three places in the CRE module:
+
+- **From the Search Results Table** — Hover over any property row and click the **Analyze ROI** button that appears on the right side of the row.
+- **From the Property Detail Panel** — Open a property's detail view and click the **ROI Analysis** tab near the top of the panel.
+- **From the Map View** — Click any parcel pin on the map to open its summary card, then click **ROI Analysis**.
+
+The panel opens as a side-by-side view: input fields on the left, calculated metrics on the right. All metrics update in real time as you adjust any input — there is no separate "Calculate" button to press.
+
+## Input Fields
+
+| Field | Default Value | Notes |
+|---|---|---|
+| **Purchase Price** | Auto-filled from listing | Edit if you intend to offer below or above asking. |
+| **Down Payment %** | 25% | Adjust to match your financing structure. |
+| **Loan Interest Rate** | Current 10-yr CRE average | Sourced from weekly Freddie Mac survey; editable. |
+| **Loan Term (Years)** | 20 | Typical for commercial loans; adjust as needed. |
+| **Estimated Renovation Cost** | $0 | Enter your total anticipated capital expenditure before occupancy. |
+| **Target Monthly Rent** | Auto-filled from comps | TradeHunter populates this from submarket comp data; editable. |
+| **Vacancy Rate Assumption** | Submarket average | Pulled from CoStar submarket data; editable. |
+| **Annual Expense Rate** | 35% of gross rent | Covers taxes, insurance, maintenance, and management. Editable. |
+| **Annual Rent Growth Rate** | 2.5% | Used for the break-even and 5-year projection models. |
+
+<Tip>
+  Vacancy rate assumptions have an outsized effect on long-term projections. In strong industrial submarkets (such as the I-40 corridor between Greensboro and Burlington), vacancy rates frequently run below 5%. In softer retail or office submarkets, 10–15% is more conservative and appropriate. Check the **Submarket Snapshot** link in the ROI panel to see the trailing 12-month vacancy trend for your specific property type and geography before accepting the default.
+</Tip>
+
+## Output Metrics
+
+Once your inputs are set, the right side of the ROI panel displays six calculated metrics:
+
+**Cap Rate**
+The ratio of net operating income to the total acquisition cost (purchase price plus renovation). A higher cap rate indicates a higher yield relative to cost. TradeHunter displays both the *as-is* cap rate (at list price, no renovation) and your *pro forma* cap rate (at your modeled purchase price and rent).
+
+**Cash-on-Cash Return**
+Annual pre-tax cash flow divided by total cash invested (down payment plus renovation). This is the metric most investors use to evaluate leverage efficiency. TradeHunter displays both Year 1 and stabilized (Year 3) cash-on-cash return.
+
+**Net Operating Income (NOI)**
+Gross scheduled rent minus vacancy allowance minus operating expenses. This is the pre-debt-service income the property generates annually. Displayed as both a monthly and annual figure.
+
+**Gross Rent Multiplier (GRM)**
+Purchase price divided by annual gross scheduled rent. A lower GRM suggests a more attractively priced asset relative to its income. TradeHunter benchmarks your GRM against the median GRM for comparable sold properties in the submarket over the prior 24 months.
+
+**Debt Service Coverage Ratio (DSCR)**
+NOI divided by annual debt service (principal plus interest). Most commercial lenders require a DSCR of 1.25 or above. TradeHunter highlights the DSCR in red if it falls below 1.20.
+
+**Estimated Break-Even Timeline**
+The number of months from acquisition until cumulative cash flow (after debt service and renovation costs) turns positive. Calculated using your rent growth rate assumption and a straight-line stabilization curve.
+
+## How TradeHunter Sources Comparable Rent Data
+
+When you open the ROI panel, TradeHunter automatically queries its rent comp database for transactions matching the property's type, submarket, and size tier. Specifically:
+
+- **Lease comps** from CoStar covering the trailing 24 months, filtered to properties within a 3-mile radius and within 20% of the subject property's square footage.
+- **Active listing rents** from LoopNet and Crexi for currently available comparable spaces, weighted at 50% of closed comp values to reflect the difference between asking and achieved rents.
+- **CREN regional data** for markets where CoStar coverage is thinner, particularly in secondary and tertiary NC markets.
+
+The resulting **Suggested Monthly Rent** figure shown in the input panel represents the median achieved rent per square foot for the comp set, multiplied by the subject property's leasable square footage. You can click **View Comp Set** to see the individual transactions that drove the estimate, and you can manually override the figure at any time.
+
+## Sample ROI Calculation
+
+The following worked example shows how TradeHunter models a typical industrial acquisition in the Greensboro market:
+
+```
+========================================================
+  TRADEHUNTER ROI ANALYSIS — SAMPLE CALCULATION
+  Property: 7,500 SF Warehouse, Greensboro, NC 27409
+========================================================
+
+INPUTS
+---------------------------------------------------------
+  Purchase Price                      $500,000
+  Estimated Renovation Cost            $50,000
+  Total Acquisition Cost              $550,000
+  Down Payment (25%)                  $137,500
+  Loan Amount                         $412,500
+  Loan Rate / Term                    6.75% / 20 yr
+  Annual Debt Service                  $37,908
+  Target Monthly Rent (comp-based)      $4,500
+  Annual Gross Scheduled Rent          $54,000
+  Vacancy Rate Assumption                   6%
+  Annual Expense Rate                      33%
+
+CALCULATED METRICS
+---------------------------------------------------------
+  Effective Gross Income (EGI)         $50,760
+  Operating Expenses (33% of EGI)      $16,751
+  Net Operating Income (NOI)           $33,009
+  Annual Debt Service                  $37,908
+
+  Cap Rate (on total acq. cost)          6.00%
+  Gross Rent Multiplier (GRM)            10.19x
+  Cash Flow Before Tax (Year 1)        -$4,899
+  Cash-on-Cash Return (Year 1)          -3.56%
+  DSCR                                   0.87x  ⚠ Below 1.25
+
+  Stabilized NOI (Year 3, +2.5%/yr)    $34,648
+  Stabilized Cash Flow (Year 3)        -$3,260
+  Stabilized Cash-on-Cash               -2.37%
+
+  Break-Even Timeline (cumulative)      ~74 months
+  (assuming 2.5% annual rent growth and full
+   renovation completed at month 3)
+
+NOTE: Increase rent or reduce acquisition cost to
+improve DSCR above lender threshold of 1.25.
+Achieving $5,500/mo rent (within submarket range)
+raises DSCR to 1.06 and break-even to ~48 months.
+========================================================
+```
+
+This example illustrates why the Discount vs. FMV filter matters: the same warehouse acquired at a 15% discount ($425,000 purchase price) raises the cap rate to 7.06% and the DSCR to 1.02 — a much more financeable position.
+
+## Saving and Sharing an ROI Report
+
+After refining your inputs, you can preserve the analysis in several ways:
+
+- **Save to Deal Room** — Click **Save Analysis** to store the scenario under the property's record in your TradeHunter account. You can save multiple scenarios per property (e.g., "Conservative," "Base Case," "Optimistic") and compare them side by side.
+- **PDF Export** — Click **Export PDF** to generate a formatted two-page report showing your inputs, all six metrics, the comp set summary, and a 5-year cash flow projection table. The PDF is branded with your name or firm name if you have configured it in **Account Settings → Report Branding**.
+- **Share Link** — Click **Share** to generate a read-only link to your analysis that you can send to a partner, lender, or client. The recipient sees your inputs and outputs without needing a TradeHunter account.

@@ -1,0 +1,125 @@
+---
+title: "Google Sheets Integration: Automated Daily Deal Reports"
+sidebarTitle: "Google Sheets"
+description: "Automate your daily deal pipeline by connecting TradeHunter to Google Sheets — new deals matching your criteria are appended every morning before you start your day."
+---
+
+The Google Sheets integration turns your deal pipeline into a living spreadsheet that refreshes itself. Every morning, TradeHunter evaluates your saved searches, scores the new deals it finds, and appends matching results to your designated Google Sheet — organized by search, pre-populated with pricing data, FMV estimates, and ROI projections. When you open your laptop at the start of the day, the work of sourcing and initial-screening deals is already done. This page covers how to connect your Google account, understand the spreadsheet structure TradeHunter creates, and manage multiple sheets for different deal verticals.
+
+---
+
+## Initial Connection
+
+<Steps>
+  <Step title="Open the Integration Settings">
+    From your TradeHunter dashboard, navigate to **Settings → Integrations → Google Sheets**.
+  </Step>
+  <Step title="Start the Connection">
+    Click **Connect Google Sheets**. You will be redirected to Google's OAuth consent screen.
+  </Step>
+  <Step title="Authorize TradeHunter">
+    Sign in with the Google account that owns or has edit access to the spreadsheet you want to use. On the permissions screen, TradeHunter requests **write access to Google Sheets files you specify** — see the Permissions and Security section below for details. Click **Allow**.
+  </Step>
+  <Step title="Choose or Create a Spreadsheet">
+    After authorization, you are returned to TradeHunter. In the **Target Spreadsheet** field, either:
+    - Type the name of an existing Google Sheet in your Drive to search for it, or
+    - Click **Create New Spreadsheet** and give it a name (for example, "TradeHunter Deals — 2025").
+
+    TradeHunter will create the sheet structure automatically if you are starting fresh.
+  </Step>
+  <Step title="Configure Columns and Schedule">
+    Select which columns to include in the report (the full default set is described below), choose a delivery time, and click **Save Configuration**. TradeHunter will run a test write to confirm the connection is working — you will see a row labeled **[TEST ROW — safe to delete]** appear in your sheet within a few seconds.
+  </Step>
+</Steps>
+
+---
+
+## Spreadsheet Structure
+
+### Default Columns
+
+TradeHunter appends one row per deal. The default column set is designed to give you everything you need to make a quick go/no-go decision without opening the listing:
+
+| Column | Description |
+|---|---|
+| **Date Added** | The date TradeHunter added this row (formatted YYYY-MM-DD) |
+| **Platform** | The source platform (e.g., GovDeals, HiBid, eBay) |
+| **Title / Description** | The listing title as it appears on the source platform |
+| **Listing URL** | Direct link to the live listing — click to open in the platform |
+| **Auction End Time** | Closing date and time in your local timezone; blank for fixed-price listings |
+| **Asking Price / Current Bid** | The current price at the time TradeHunter ingested the listing |
+| **Estimated FMV** | TradeHunter's fair market value estimate based on comps and platform data |
+| **Discount %** | `((FMV − Price) / FMV) × 100` — how far below FMV the item is currently priced |
+| **Deal Score** | TradeHunter's composite deal quality score (0–100) |
+| **ROI Estimate** | Projected return on investment after estimated acquisition, holding, and resale costs |
+| **Category** | TradeHunter's normalized category tag (e.g., Industrial Equipment, Commercial Real Estate, Collectibles) |
+| **Notes** | Pre-populated with any automated flags (e.g., "Reserve not met", "No returns accepted", "Seller feedback < 90%") |
+
+You can reorder, hide, or add custom columns in the Google Sheet itself without disrupting TradeHunter's append logic — TradeHunter writes to columns by header name, not by position.
+
+### Tabs Per Saved Search
+
+Each of your TradeHunter saved searches gets its own tab in the spreadsheet. Tabs are named after the search label you set in TradeHunter (for example, "Commercial Lots — Texas" or "Vintage Lab Equipment"). A **Summary** tab is also created automatically, showing totals and a 7-day deal volume chart across all searches. If you rename a tab in Google Sheets, TradeHunter will create a new tab with the original name on the next sync — rename searches in TradeHunter, not in the sheet, to keep them aligned.
+
+---
+
+## Scheduling
+
+### Morning Digest (Default)
+
+By default, TradeHunter delivers your deal report at **7:00 AM in your account's local timezone** each day. The sync runs on a rolling 24-hour lookback window, so every deal added to TradeHunter's index since the previous sync is included.
+
+### Custom Time Selection
+
+To change the delivery time, go to **Settings → Integrations → Google Sheets → Schedule**, use the time picker to select your preferred time, and click **Save**. You can also select **Multiple Times Per Day** to receive a mid-day refresh in addition to the morning run — available on Pro and above plans.
+
+### On-Demand Refresh
+
+To trigger an immediate sync outside of your scheduled window, click **Sync Now** on the Google Sheets integration card in your dashboard. The sync typically completes within 60–90 seconds depending on the number of active searches and new results. A confirmation banner shows the number of rows written when the sync finishes.
+
+---
+
+## Managing Multiple Sheets
+
+### Connecting More Than One Spreadsheet
+
+You can connect multiple Google Sheets to TradeHunter — for example, one spreadsheet for commercial real estate deals and a separate one for resale and auction finds. To add a second sheet:
+
+1. Go to **Settings → Integrations → Google Sheets**.
+2. Click **Add Another Sheet**.
+3. Follow the same connection flow, choosing a different spreadsheet at the target selection step.
+4. In the **Search Assignment** panel, drag each of your saved searches to the spreadsheet where its results should land.
+
+Each spreadsheet connection runs on its own schedule. You can set different delivery times for different sheets — for instance, a CRE sheet that syncs at 6 AM and a resale sheet that syncs at 8 AM.
+
+### Renaming, Pausing, and Deleting a Sheet Connection
+
+- **Renaming:** Click the pencil icon next to the sheet connection name in Settings. This changes the display label in TradeHunter only — the actual Google Sheet filename is unchanged.
+- **Pausing:** Toggle the **Active** switch to pause syncing without disconnecting. TradeHunter retains your configuration so you can resume with one click. No data is written to the sheet while paused.
+- **Deleting:** Click **Remove Connection** to permanently remove the sheet connection from TradeHunter. Your Google Sheet is not deleted — only the TradeHunter sync configuration is removed.
+
+<Warning>
+  If you delete a spreadsheet from Google Drive while a TradeHunter sync is still active, the sync will begin failing immediately. Subsequent sync attempts will show a **Spreadsheet Not Found** error on your dashboard. To avoid losing your configuration, always **pause or remove the sync in TradeHunter first**, then delete the file from Google Drive.
+</Warning>
+
+---
+
+## Permissions and Security
+
+### What TradeHunter Requests
+
+During the Google OAuth flow, TradeHunter requests the **`https://www.googleapis.com/auth/spreadsheets`** scope, which grants write access to Google Sheets files. Critically, this scope is applied only to the specific spreadsheets you designate in TradeHunter — it is not blanket access to your entire Google Drive. TradeHunter cannot read your other Drive files, emails, calendar, or any Google service outside of the sheets you have explicitly connected.
+
+### Revoking Access
+
+To revoke TradeHunter's access to your Google account:
+
+1. Go to [myaccount.google.com/permissions](https://myaccount.google.com/permissions).
+2. Find **TradeHunter** in the list of third-party apps.
+3. Click **Remove Access**.
+
+After revocation, all Google Sheets syncs will fail and show an **Authorization Revoked** error in TradeHunter. You can reconnect at any time by repeating the initial connection flow.
+
+<Note>
+  The Google Sheets API enforces a limit of 300 write requests per minute per project. TradeHunter batches all row appends into a single bulk write per sync run, so even a large deal feed with hundreds of new results is written in one API call per sheet tab. You will not hit rate limits under normal usage. If you have an unusually high volume of saved searches (50+), TradeHunter staggers the tab writes across a 2-minute window to remain comfortably within Google's limits.
+</Note>

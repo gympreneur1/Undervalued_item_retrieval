@@ -1,0 +1,249 @@
+---
+title: "Troubleshooting Common TradeHunter Issues"
+sidebarTitle: "Troubleshooting"
+description: "Fix the most common issues in TradeHunter: broken integrations, missing search results, Google Sheets sync failures, and incorrect deal scores."
+---
+
+Most issues in TradeHunter fall into a handful of categories: search configuration, stale data from a connected platform, a permission gap in an integration, or an account change that affected saved settings. Work through the relevant section below to resolve your issue — each accordion includes a diagnosis and step-by-step fix. If you're still stuck after following the steps, contact us at [support@tradehunter.app](mailto:support@tradehunter.app).
+
+---
+
+## Search & Results
+
+<AccordionGroup>
+  <Accordion title="My Property Search Returns No Results">
+    **Diagnosis:** Empty results are almost always caused by filters that are too restrictive, a disconnected data source, or a geographic boundary that doesn't overlap with available coverage.
+
+    1. Open your saved search and click **Edit Filters**.
+    2. Temporarily remove all optional filters (price range, lot size, zoning, deal score minimum) and run the search again with only the location set.
+    3. If results appear, add your filters back one at a time to identify which constraint is eliminating all matches.
+    4. Check that your geographic boundary is drawn correctly — go to **Map View** and confirm the polygon or radius covers the area you intend.
+    5. Navigate to **Settings → Integrations** and verify that your connected data sources (CoStar, Crexi, LoopNet) show a green **Active** status. A disconnected source can make an entire property type disappear from results.
+    6. If you're searching in a rural or low-density market, expand your search radius by at least 25% — thinly listed markets may have fewer than 10 active CRE listings within a tight boundary.
+
+    <Tip>
+      Use the **Market Coverage Map** (Search → Market Coverage Map) to confirm that your target area has full or enhanced coverage before building a narrow filter set.
+    </Tip>
+  </Accordion>
+
+  <Accordion title="Results Are Not Updating / Stale Listings Are Showing">
+    **Diagnosis:** Stale results usually mean a scheduled sync job failed silently, or a connected platform throttled TradeHunter's data requests.
+
+    1. Go to **Settings → Integrations** and check the **Last Synced** timestamp for each connected platform. If any platform shows a sync time older than 6 hours, click **Force Sync** next to that platform.
+    2. Check the **Platform Status** page (Resale → Platform Status) for any yellow or red status indicators — these signal that a third-party platform is currently rate-limiting or blocking automated data requests.
+    3. Clear your search cache by going to **Search → [Your Search Name] → Options → Clear Cache** and re-running the search.
+    4. Log out of TradeHunter and log back in, then reload the search results page. A stale browser session can sometimes display cached result snapshots.
+    5. If a specific listing still shows an old price or status after a force sync, click the listing and select **Refresh This Listing** to trigger a targeted re-pull from the source platform.
+
+    <Note>
+      Some platforms (notably CoStar) enforce API rate limits that can delay syncs by up to 2 hours during peak usage windows (9 AM–12 PM EST on weekdays).
+    </Note>
+  </Accordion>
+
+  <Accordion title="FMV Estimates Look Wrong for My Market">
+    **Diagnosis:** FMV accuracy depends on the density of recent comparable sales in a given micro-market. Sparse rural markets, atypical property types, or recently rezoned parcels can produce estimates that are significantly off.
+
+    1. Open the property detail view and click **FMV Breakdown** to see which comparable sales the model used. Check whether the comps are genuinely comparable — similar zoning, lot size, and proximity.
+    2. Look at the **Confidence Score** displayed next to the FMV figure. A "Low" confidence score is a direct signal that TradeHunter doesn't have enough local data to produce a reliable estimate for that parcel.
+    3. If the comps used are outdated (older than 18 months), click **Edit Comps** and manually add more recent sales from your own research.
+    4. Adjust the **Search Radius for Comps** setting on the property detail view — widening it slightly can pull in more recent data, while narrowing it can eliminate outlier sales from dissimilar neighborhoods.
+    5. If you believe the AVM is systematically off for an entire market, submit a **Market Calibration Request** via **Help → Feedback** so our data team can investigate the underlying comparable dataset.
+
+    <Tip>
+      For high-stakes decisions, always cross-reference TradeHunter FMV estimates with a licensed appraisal — the AVM is a starting point, not a substitute for professional valuation.
+    </Tip>
+  </Accordion>
+
+  <Accordion title="The Deal Score Seems Too Low / Too High for a Listing I Know Is a Good Deal">
+    **Diagnosis:** Deal Score weights can drift from your personal criteria if your category settings haven't been customized, or if the model is pulling stale market comps that don't reflect current conditions.
+
+    1. Click the listing and open **Score Breakdown** to see exactly which factors are dragging the score down (or inflating it). Common culprits are high estimated platform fees, condition keywords that suggest damage, or a comp pool that includes recent fire-sale prices.
+    2. Go to **Resale → Score Settings** (or **CRE → Score Settings** for property scores) and review the weight sliders for each factor. Adjust weights to match your actual investment criteria — for example, if you don't care about shipping costs because you're local, reduce the shipping-cost weight to zero.
+    3. Check whether the listing's condition is correctly detected. If the seller wrote "works perfectly" in a non-standard way, the algorithm may have missed it — click **Override Condition** on the listing and set it manually.
+    4. If comparable sales used by the score are outdated, click **Refresh Comps** to force a new pull. A comp pool dominated by pandemic-era prices can skew scores significantly in today's market.
+    5. Use the **Flag This Score** button to report the listing to our scoring team — flagged listings are reviewed weekly and help improve the model for the whole community.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Integrations
+
+<AccordionGroup>
+  <Accordion title="CoStar Integration Shows 'Connection Failed'">
+    **Diagnosis:** This error appears when the stored API key is invalid, expired, or when your CoStar subscription tier no longer includes API access.
+
+    1. Log in to your CoStar account and navigate to **My Account → API Access**. Confirm that API access is enabled and note the current API key.
+    2. In TradeHunter, go to **Settings → Integrations → CoStar** and click **Edit Connection**. Delete the existing key and re-enter the key from step 1.
+    3. Click **Test Connection** — if the test passes, click **Save** and wait 15 minutes for the initial sync to complete.
+    4. If the test fails even with a freshly copied key, verify your CoStar subscription level. Basic listing-only plans do not include API access; contact your CoStar account representative to confirm your entitlements.
+    5. If your CoStar credentials recently changed (password reset, company SSO migration), CoStar may have automatically invalidated your API key — generate a new one and repeat the steps above.
+
+    <Note>
+      CoStar API keys are scoped to a specific user account, not a company account. If your key was generated by a colleague who has since left your organization, you will need to generate a new key under your own credentials.
+    </Note>
+  </Accordion>
+
+  <Accordion title="LoopNet or Crexi Data Is Not Appearing in Results">
+    **Diagnosis:** LoopNet and Crexi data can go missing due to an OAuth token expiry, a change in your connected account's permission level, or a temporary API outage on their end.
+
+    1. Go to **Settings → Integrations** and check the status badge next to LoopNet and Crexi. A yellow **Warning** badge usually indicates a token refresh is needed; a red **Error** badge means re-authentication is required.
+    2. For a yellow badge, click **Refresh Token** — this silently renews the connection without requiring you to log in again.
+    3. For a red badge, click **Reconnect**, complete the OAuth login flow in the pop-up window, and grant the requested permissions. Make sure you authenticate with the same account that holds your LoopNet/Crexi subscription.
+    4. After reconnecting, navigate to **Resale → Platform Status** or **CRE → Data Sources** and confirm the new **Last Synced** timestamp updates within 10 minutes.
+    5. If data still doesn't appear after reconnection, check whether your LoopNet or Crexi plan tier includes data API access — some entry-level plans are restricted to manual browsing only.
+
+    <Tip>
+      Set a calendar reminder to re-authenticate platform integrations every 90 days, as most OAuth tokens expire on that cycle.
+    </Tip>
+  </Accordion>
+
+  <Accordion title="Facebook Marketplace Listings Are Missing">
+    **Diagnosis:** Facebook Marketplace does not offer a public API, so TradeHunter uses a monitored scraping layer that can be disrupted by Facebook's bot-detection systems or regional availability restrictions.
+
+    1. Go to **Resale → Platform Status** and check whether Facebook Marketplace shows a **Degraded** or **Paused** status. If it does, this is a platform-wide issue being worked on by our data team — no action is needed on your end.
+    2. If the status shows **Active** but you're still missing results, check your search filters for location. Facebook Marketplace listings are geo-fenced — confirm your search radius is set to a metro area rather than a strict ZIP code, since FB data is indexed by metro.
+    3. Verify that Facebook Marketplace is enabled for your saved search by opening the search, clicking **Edit Platforms**, and confirming the Facebook Marketplace toggle is on.
+    4. Delete and recreate the saved search if the toggle is already on but results are still missing — occasionally a stale search index doesn't pick up a platform toggle change.
+    5. If the issue persists across multiple searches, email [support@tradehunter.app](mailto:support@tradehunter.app) with your account email and a sample item category — our team can manually verify whether your account is seeing Facebook data correctly.
+
+    <Note>
+      Facebook Marketplace data availability varies by region and is subject to change without notice based on Facebook's platform policies. TradeHunter maintains a backup window of up to 12 hours for FB listings in affected regions.
+    </Note>
+  </Accordion>
+
+  <Accordion title="A Specific Auction Platform Is Not Returning Results">
+    **Diagnosis:** Individual auction platforms can go offline for maintenance, change their data structure, or block automated access temporarily — all of which can cause results to disappear for that source only.
+
+    1. Check the **Platform Status** dashboard at **Resale → Platform Status** to see the current health of each connected auction source. Note the last successful sync time for the affected platform.
+    2. Visit the auction platform's website directly to confirm it is online and that similar items exist in the category you're searching. If the platform itself is down, TradeHunter will automatically resume syncing once it recovers.
+    3. Open your saved search, click **Edit Platforms**, remove the affected platform, save, then re-add it and save again. This forces a fresh registration of your search query against that platform's sync queue.
+    4. Check whether the platform requires periodic re-authentication. Platforms like Hibid and Proxibid use session-based tokens — go to **Settings → Integrations**, find the platform, and click **Re-authenticate** if available.
+    5. If the platform has been showing no results for more than 24 hours and its status appears green, submit a support ticket via **Help → Report a Platform Issue** with the platform name and affected search ID.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Google Sheets
+
+<AccordionGroup>
+  <Accordion title="My Google Sheets Export Is Not Running on Schedule">
+    **Diagnosis:** Missed scheduled exports are typically caused by a revoked Google authorization, an export job that errored out silently, or a plan change that reduced your export frequency allowance.
+
+    1. Go to **Exports → Scheduled Exports** and check the **Last Run** and **Next Run** timestamps for your export. If **Last Run** shows an error icon, hover over it to see the failure reason.
+    2. Navigate to **Settings → Integrations → Google Sheets** and confirm the connection status is **Active**. If it shows **Authorization Expired**, click **Reconnect** and complete the Google OAuth flow — make sure to grant all requested permissions, including edit access to the target spreadsheet.
+    3. Open the target Google Sheet and confirm it hasn't been deleted, moved to Trash, or had its sharing permissions changed. TradeHunter needs at least **Editor** access to the sheet or the parent folder.
+    4. Check your current plan's export frequency limit under **Settings → Billing → Plan Details**. If you recently downgraded, your export schedule may have been automatically adjusted to the new allowed minimum interval.
+    5. After resolving the root cause, click **Run Now** on the export to trigger an immediate sync and confirm the connection is working before relying on the schedule again.
+
+    <Tip>
+      Use a dedicated Google account (e.g., a shared team account) for TradeHunter's Sheets integration to avoid disruptions caused by individual password changes or access revocations.
+    </Tip>
+  </Accordion>
+
+  <Accordion title="The Spreadsheet Shows Duplicate Rows">
+    **Diagnosis:** Duplicate rows appear when an export runs more than once against the same sheet without deduplication, usually after a manual **Run Now** was triggered while a scheduled run was already in progress.
+
+    1. Open the affected Google Sheet and identify the duplicate rows by sorting on the **Listing ID** column — all true duplicates will share an identical Listing ID.
+    2. Delete the extra rows manually, keeping only the most recent version of each Listing ID (check the **Date Added to TradeHunter** or **Last Updated** column to determine which is newer).
+    3. In TradeHunter, go to **Exports → [Your Export Name] → Settings** and confirm that **Deduplication Mode** is set to **Update Existing Rows** rather than **Append Always**. The default is Update, but it can be accidentally changed.
+    4. Avoid clicking **Run Now** within 10 minutes of a scheduled run time — concurrent export jobs can briefly overlap and write the same rows twice before the deduplication lock activates.
+    5. If duplicates reappear after your next scheduled run, contact [support@tradehunter.app](mailto:support@tradehunter.app) with your export ID (visible in **Exports → [Export Name] → Details**) so our team can inspect the job logs.
+
+    <Note>
+      If your sheet has grown very large (10,000+ rows), deduplication can take longer than usual. TradeHunter processes deduplication server-side, so the sheet may appear to have duplicates briefly before the cleanup pass completes.
+    </Note>
+  </Accordion>
+
+  <Accordion title="Some Columns Are Missing from the Export">
+    **Diagnosis:** Missing columns are almost always caused by a column configuration that was changed after the export template was created, or by a plan downgrade that restricted certain data fields.
+
+    1. Go to **Exports → [Your Export Name] → Column Manager** and review which columns are currently toggled on. Re-enable any columns that appear toggled off and save the template.
+    2. Click **Run Now** to trigger a fresh export — note that TradeHunter writes columns to the spreadsheet header row based on your current template, so new or restored columns will only appear after the next run.
+    3. Check whether the missing columns are CRE-specific fields (e.g., Cap Rate, Zoning, Tax Incentives). These fields only populate for CRE listings and will be blank or absent for Resale listings within the same export — confirm you're looking at the right row type.
+    4. If you recently upgraded or downgraded your plan, some columns (such as Off-Market Flag or Projected ROI) may have changed availability. Review your plan's data export entitlements under **Settings → Billing → Plan Details**.
+    5. If a column you need doesn't exist in Column Manager at all, submit a **Feature Request** via **Settings → Feature Requests** — custom column additions are reviewed on a quarterly basis.
+  </Accordion>
+
+  <Accordion title='"Insufficient Permissions" Error When Connecting Google Sheets'>
+    **Diagnosis:** This error means TradeHunter's Google authorization was granted without the required scopes, or the Google account doesn't have the right access level on the target spreadsheet.
+
+    1. Go to **Settings → Integrations → Google Sheets** and click **Disconnect**, then click **Connect** to start the OAuth flow from scratch.
+    2. During the Google authorization screen, make sure you check the box granting access to **"See, edit, create, and delete all your Google Sheets spreadsheets"**. Partial permission grants (view-only) will cause this error every time.
+    3. If you're connecting to a shared spreadsheet you don't own, confirm with the owner that your Google account has been granted **Editor** (not just Viewer) access directly on that file.
+    4. If your organization uses Google Workspace with admin-managed OAuth policies, contact your Google Workspace administrator — they may need to whitelist TradeHunter's OAuth app ID (`tradehunter-sheets-integration`) before the authorization can complete.
+    5. After reconnecting successfully, run a test export from **Exports → Run Now** and confirm data appears in the sheet before relying on the scheduled sync.
+
+    <Tip>
+      If you manage multiple Google accounts, make sure you authorize TradeHunter with the same Google account that owns or has edit access to your target spreadsheet. Mixing accounts is the most common cause of persistent permission errors.
+    </Tip>
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Account & Notifications
+
+<AccordionGroup>
+  <Accordion title="I Am Not Receiving Deal Alert Emails">
+    **Diagnosis:** Missing alert emails are usually caused by spam filtering, a notification setting that got toggled off, or an alert that was paused when a saved search exceeded its result quota.
+
+    1. Check your spam or junk folder for emails from `alerts@tradehunter.app` and add that address to your email allowlist to prevent future filtering.
+    2. Go to **Settings → Notifications** and confirm that **Email Alerts** is enabled for the relevant saved searches. Each saved search has its own notification toggle in addition to the global setting.
+    3. Verify your notification email address is correct under **Settings → Account → Contact Email**. If you recently changed your primary email, alert emails may still be going to the old address until you update this field.
+    4. Check whether the saved search that should be triggering alerts has gone into a **Paused** state — this can happen automatically if the search returned zero results for 7 consecutive days. Re-activate it from **Searches → Manage**.
+    5. Send yourself a test alert by going to **Settings → Notifications → Send Test Email**. If the test arrives in your inbox, the delivery pipeline is working and the issue is with the search trigger; if it doesn't arrive, contact [support@tradehunter.app](mailto:support@tradehunter.app) to investigate potential account-level email suppression.
+
+    <Note>
+      Transactional email delivery can occasionally be delayed by 5–15 minutes during high-volume market events when many users receive alerts simultaneously.
+    </Note>
+  </Accordion>
+
+  <Accordion title="My Saved Search Was Deleted">
+    **Diagnosis:** Saved searches are not deleted automatically unless your plan was downgraded past the search limit and you (or an account admin) confirmed the removal. Accidental deletion by a team member is also possible on shared accounts.
+
+    1. Go to **Searches → Manage** and check the **Archived** tab — searches that were deactivated due to a plan downgrade are archived here, not permanently deleted, and can be restored with one click.
+    2. If you're on a team plan, check **Settings → Team → Activity Log** to see whether a team member deleted the search and when.
+    3. If the search doesn't appear in Archived and no team activity log entry explains the deletion, it may have been removed during an account sync issue. Contact [support@tradehunter.app](mailto:support@tradehunter.app) within 30 days — our team can recover search configurations from server-side backups within that window.
+    4. Going forward, use **Searches → Export Search Config** to save a local JSON backup of your most important searches — this lets you recreate them instantly even in a worst-case scenario.
+
+    <Tip>
+      On Pro and Enterprise plans, you can pin up to 10 searches as **Protected Searches**, which cannot be deleted or deactivated by anyone except the account owner — enable this in **Searches → [Search Name] → Protect**.
+    </Tip>
+  </Accordion>
+
+  <Accordion title="Two-Factor Authentication Is Not Working">
+    **Diagnosis:** 2FA failures are almost always caused by a time-sync issue on your authenticator app, a lost device, or a backup code that has already been used.
+
+    1. Check the time on your phone or authenticator device — TOTP codes are time-based and will fail if your device clock is more than 30 seconds out of sync. Enable **automatic time sync** in your device settings.
+    2. If your clock is correct but codes still fail, open your authenticator app (Google Authenticator, Authy, etc.), find the TradeHunter entry, and try the next code that appears immediately after the current one expires — a one-cycle offset can occur with some apps.
+    3. If you've lost access to your authenticator device, use one of the **backup codes** you saved when you first set up 2FA. Each code can only be used once.
+    4. If you no longer have backup codes and can't access your authenticator, email [support@tradehunter.app](mailto:support@tradehunter.app) from your registered account email address — include your full name and the last 4 digits of the card on file for identity verification. Our team will initiate a manual 2FA reset within one business day.
+    5. Once back in your account, go to **Settings → Security → Two-Factor Authentication** and set up a fresh TOTP entry with your authenticator app, saving new backup codes in a secure location.
+
+    <Note>
+      For security reasons, TradeHunter support cannot bypass 2FA over live chat — account recovery must go through the email verification process described in step 4.
+    </Note>
+  </Accordion>
+
+  <Accordion title="I Was Charged After Canceling My Subscription">
+    **Diagnosis:** Post-cancellation charges are almost always caused by a cancellation that was initiated but not fully confirmed, a second active subscription on a different email address, or a billing cycle that began just before the cancellation was processed.
+
+    1. Log in to TradeHunter and go to **Settings → Billing → Billing History**. Note the exact date and amount of the unexpected charge.
+    2. Check **Settings → Billing → Subscription Status** — if it shows **Active**, your cancellation was not completed. Go through the cancellation flow again: **Settings → Billing → Cancel Plan → Confirm Cancellation**. You should receive a cancellation confirmation email immediately.
+    3. If your subscription status shows **Canceled** but you were still charged, check the charge date against your cancellation date. If the charge predates the cancellation (i.e., it was the last billing cycle before cancellation took effect), it is valid per TradeHunter's no-proration policy.
+    4. Check whether you have a second TradeHunter account under a different email address — team invites and SSO logins sometimes result in duplicate accounts with separate billing.
+    5. If none of the above explains the charge, forward your cancellation confirmation email and the unexpected charge receipt to [support@tradehunter.app](mailto:support@tradehunter.app). Our billing team will investigate and issue a refund within 5–7 business days if the charge was made in error.
+
+    <Tip>
+      After canceling, save your cancellation confirmation email as proof of cancellation date — this is the fastest way to resolve any billing disputes.
+    </Tip>
+  </Accordion>
+</AccordionGroup>
+
+---
+
+<Card title="Still Need Help? Contact Support" icon="envelope" href="mailto:support@tradehunter.app">
+  Our support team is available Monday–Friday, 9 AM–6 PM EST. Email us at **support@tradehunter.app** with your account email, a description of the issue, and any relevant screenshots or export IDs. We typically respond within one business day.
+</Card>

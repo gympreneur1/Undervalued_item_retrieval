@@ -1,0 +1,79 @@
+{
+  "projectType": "saas",
+  "projectName": "TradeHunter",
+  "projectDescription": "TradeHunter is a deal-intelligence platform that helps commercial real estate agents and resellers identify undervalued properties and auction inventory — complete with ROI analysis, tax incentive discovery, and automated daily reporting to Google Sheets.",
+  "theme": "almond",
+  "primaryColor": "#ef7025",
+  "lightColor": "#eec9bc",
+  "darkColor": "#4fa1ab",
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Documentation",
+        "groups": [
+          {
+            "group": "Get Started",
+            "pages": [
+              "introduction",
+              "quickstart",
+              "account-setup"
+            ]
+          },
+          {
+            "group": "Commercial Real Estate",
+            "pages": [
+              "cre/overview",
+              "cre/property-search",
+              "cre/roi-analysis",
+              "cre/tax-incentives",
+              "cre/highway-visibility"
+            ]
+          },
+          {
+            "group": "Resale & Auction Finder",
+            "pages": [
+              "resale/overview",
+              "resale/marketplace-sources",
+              "resale/deal-scoring",
+              "resale/vintage-equipment",
+              "resale/google-sheets-export"
+            ]
+          },
+          {
+            "group": "Integrations",
+            "pages": [
+              "integrations/costar",
+              "integrations/auction-platforms",
+              "integrations/google-sheets"
+            ]
+          },
+          {
+            "group": "Help",
+            "pages": [
+              "help/faq",
+              "help/troubleshooting"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "keyFeatures": [
+    "Automated discovery of undervalued commercial properties across CoStar, CREN, and major realty platforms",
+    "ROI potential scoring for commercial parcels and land",
+    "Tax incentive and grant lookup per property (Opportunity Zones, historic credits, etc.)",
+    "Highway-visibility land search filtered by area code and proximity to major roads",
+    "Multi-source auction aggregation: Facebook Marketplace, GovPlanet, government surplus, university surplus, estate sales, foreclosures, tax liens, bankruptcy auctions",
+    "Vintage/specialty fitness equipment deal finder (Nautilus, MedX, Body Masters, Nebula, Atlantis, etc.)",
+    "Daily automated deal reports exported to Google Sheets",
+    "Below-market value scoring and ROI estimates for resale inventory"
+  ],
+  "publicApiSurface": [
+    "Property Search — filter by market area, property type, price vs. fair market value",
+    "ROI Calculator — input purchase price, expected rents/cap rate, return projected net yield",
+    "Tax Incentive Lookup — returns applicable federal/state programs for a given parcel",
+    "Auction Deal Feed — aggregated listings scored below market value from 20+ platforms",
+    "Google Sheets Sync — daily push of new deals matching saved search criteria",
+    "Equipment Category Filter — narrow auction results to specific vintage fitness brands"
+  ]
+}

@@ -1,0 +1,96 @@
+---
+title: "How TradeHunter Scores Resale Deal Value and ROI"
+sidebarTitle: "Deal Scoring"
+description: "Understand how TradeHunter calculates below-market discount, resale ROI, and deal scores to help you identify the highest-value inventory across auction platforms."
+---
+
+Every listing TradeHunter surfaces is automatically assigned a Deal Score — a single number from 0 to 100 that reflects how attractive an opportunity is relative to its resale potential. Rather than forcing you to manually compare auction prices against eBay comps and guess at ROI, TradeHunter does the math in real time and ranks every deal so you can focus your attention where it matters most. This page explains exactly how that score is calculated, how to use it to filter your deal feed, and how to read the score breakdown panel on any individual listing.
+
+## The Deal Score (0–100)
+
+The Deal Score is a composite metric that weighs four inputs:
+
+1. **Discount vs. Market Value (50% of score)** — The single largest factor. TradeHunter compares the current auction price or asking price to the estimated fair market value (FMV) for that item. A listing priced at 30% of FMV will score significantly higher than one priced at 85% of FMV, all else being equal. The discount is calculated as `(FMV − listing price) / FMV × 100`.
+
+2. **Resale Demand (25% of score)** — TradeHunter measures demand signals for the specific item type: recent search volume trends, average days-to-sell on comparable listings, and velocity of comparable sales over the past 90 days. High-demand items (those that sell quickly and in volume) receive a demand multiplier that boosts the overall score.
+
+3. **Platform Reliability (15% of score)** — Not all platforms carry the same execution risk. Structured auction platforms with verified seller identity, clear title transfer processes, and buyer protection policies (GovDeals, BidSpotter, HiBid) receive higher platform reliability scores than peer-to-peer listings on Craigslist or Facebook Marketplace, where condition claims are unverified and transactions can fall through. This factor reduces the score modestly for higher-risk platforms.
+
+4. **Condition Notes (10% of score)** — When a listing includes condition information — whether extracted from the listing text, auctioneer notes, or condition tags — TradeHunter uses it to adjust the score. A listing marked "working, recently serviced" scores higher than one marked "untested" or "for parts." Listings with no condition information receive a neutral (average) condition adjustment.
+
+The four weighted inputs are combined into a single 0–100 score. A score of **90 or above** represents an exceptional deal with strong demand and deep discount. A score of **70–89** is a solid opportunity worth evaluating. Scores **below 60** indicate that the price is close to or above market value, or that demand signals are weak.
+
+## How Market Value Is Estimated
+
+TradeHunter builds its FMV estimates from three primary data sources:
+
+- **eBay Completed Listings** — Sold (not just listed) prices from eBay's completed auction and Buy It Now history are the most reliable signal for FMV on most consumer and commercial items. TradeHunter pulls completed sales from the past 90 days for matching item descriptions and uses the median sale price as the baseline FMV.
+
+- **Facebook Marketplace Comps** — For heavy, locally sold items — where shipping cost effectively creates regional price floors — TradeHunter samples recently sold and active Facebook Marketplace listings in the same geographic region to establish a local FMV reference point.
+
+- **Specialty Resale Platforms** — For categories like vintage commercial gym equipment, lab instruments, and industrial machinery, TradeHunter supplements eBay comps with data from specialty resale platforms (including HiBid, BidSpotter, and LabX completed auctions) where comparable items trade more frequently than on general marketplaces.
+
+FMV estimates are refreshed on a rolling 90-day basis. For items with limited comparable sales history, TradeHunter widens the confidence interval and reflects that uncertainty in the score breakdown panel with a note indicating low comparable sales volume.
+
+## ROI Estimate
+
+In addition to the Deal Score, TradeHunter displays an ROI Estimate for each listing. The formula is straightforward:
+
+```
+ROI Estimate = (Estimated Resale Price − Acquisition Cost) / Acquisition Cost × 100
+```
+
+The **acquisition cost** is the current auction price or asking price. The **estimated resale price** is derived from the FMV range — TradeHunter typically displays a conservative and an optimistic resale estimate based on the 25th and 75th percentile of comparable sold prices. This gives you an ROI range rather than a single figure, reflecting real-world variability in resale outcomes.
+
+Keep in mind that the ROI Estimate reflects gross ROI before accounting for shipping, reconditioning, storage, platform selling fees, or your time. TradeHunter displays the gross figure; you should apply your own cost assumptions when evaluating whether a deal meets your net margin target.
+
+## Worked Example
+
+```
+Item: Nautilus Nitro Leg Press (commercial grade)
+Platform: GovDeals
+Auction Price: $180
+Estimated Market Value: $850
+Discount: 78.8%
+Estimated Resale: $650–$800
+ROI Estimate: 261%–344%
+Deal Score: 94/100
+```
+
+In this example, a commercial-grade Nautilus Nitro Leg Press is available on GovDeals for $180. TradeHunter's FMV model pegs comparable units at $850 based on recent eBay completed sales and HiBid auction results. The 78.8% discount from market value generates a strong discount sub-score. Coupled with high resale demand for Nautilus Nitro commercial equipment and a high platform reliability score for GovDeals, the listing reaches a Deal Score of 94/100. The gross ROI estimate of 261%–344% assumes resale in the $650–$800 range based on recent comparable sales velocity.
+
+## Filtering by Deal Score
+
+You can set a minimum Deal Score threshold in your Resale search filters to restrict your deal feed to only the strongest opportunities. To do this:
+
+1. Open your **Resale Search** or a saved search in your dashboard.
+2. In the **Filters** panel, locate the **Minimum Deal Score** slider.
+3. Drag the slider or type a value. Most experienced resellers set a threshold between **75 and 85** to balance deal volume with quality.
+4. Your deal feed updates immediately to show only listings at or above your threshold.
+
+You can also sort your deal feed by Deal Score (highest first) to prioritize the best opportunities at the top of the list, regardless of when they were posted.
+
+## Reading the Score Breakdown Panel
+
+Every listing in your deal feed includes a **Score Breakdown** panel. Click the score badge on any listing to expand it. The panel shows:
+
+- **Discount Score** — The sub-score contribution from the discount vs. FMV calculation, along with the raw discount percentage and the FMV estimate used.
+- **Demand Score** — The sub-score contribution from resale demand signals, including the average days-to-sell and 90-day comparable sales count for this item type.
+- **Platform Score** — The reliability rating for the source platform, with a brief explanation of how it was assigned.
+- **Condition Score** — The condition adjustment applied, along with the condition text extracted from the listing (if available).
+- **Comparable Sales** — A mini-table of the recent sold comps TradeHunter used to build the FMV estimate, including platform, sale date, and sale price.
+
+The breakdown panel is designed to let you validate or challenge the score. If you believe the FMV estimate is based on poor comps, you can flag the listing for review using the **Flag Comp Issue** button in the panel.
+
+## What "High Demand" Means
+
+TradeHunter's demand signal is built from two inputs:
+
+- **Search Volume Trends** — TradeHunter tracks keyword search volume for item-type and brand combinations over time. Items in rising or sustained-high demand (e.g., "commercial leg press," "Nautilus Nitro," "Cybex Eagle") receive a higher demand multiplier.
+- **Recent Comparable Sales Velocity** — TradeHunter measures how quickly comparable items sell once listed. An item that consistently sells within 3–7 days of listing receives a high velocity score. An item that sits for 60+ days before selling — or has very few recent comps — receives a low velocity score.
+
+High demand means the item has both market awareness (people are searching for it) and market liquidity (people are actually buying it at reasonable prices within a reasonable timeframe). Both conditions must hold for an item to receive a strong demand sub-score.
+
+<Tip>
+  Combine Deal Score with platform reliability ratings to sharpen your prioritization. A score of 82 on GovDeals — a fully verified government auction platform — represents a more reliable opportunity than a score of 82 on Craigslist, where condition claims are unverified and the seller may not follow through. When two listings score similarly, favor the one on the higher-reliability platform. You can see each platform's reliability rating in the Score Breakdown panel or in **Settings → Source Platforms**.
+</Tip>
